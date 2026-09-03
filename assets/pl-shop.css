@@ -1,0 +1,12 @@
+.pl-shop__head{text-align:center; margin-bottom:28px}
+.pl-shelf{
+  display:grid; gap:14px;
+  grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+}
+@media (min-width: 960px){
+  .pl-shelf{grid-template-columns:repeat(4, 1fr)}
+}
+@media (max-width: 600px){
+  .pl-shelf{grid-template-columns:repeat(2, 1fr); gap:10px}
+}
+.pl-empty{color:var(--pl-muted); text-align:center; padding:40px 0}

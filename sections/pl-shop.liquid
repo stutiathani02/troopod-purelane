@@ -1,0 +1,43 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-card.css' | asset_url | stylesheet_tag }}
+{{ 'pl-shop.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'pl-cart.js' | asset_url }}" defer></script>
+
+<section id="{{ section.settings.anchor | default: 'shop' }}"
+         class="pl-section pl-shop"
+         aria-labelledby="pl-shop-title-{{ section.id }}">
+  <div class="pl-wrap">
+    <header class="pl-shop__head">
+      {% if section.settings.kicker != blank %}
+        <span class="pl-kicker">{{ section.settings.kicker }}</span>
+      {% endif %}
+      <h2 id="pl-shop-title-{{ section.id }}" class="pl-h2">{{ section.settings.title }}</h2>
+    </header>
+    <div class="pl-shelf">
+      {% assign col = section.settings.collection %}
+      {% if col != blank and col.products.size > 0 %}
+        {% for product in col.products limit: section.settings.limit %}
+          {% render 'pl-product-card', product: product, style: 'grid' %}
+        {% endfor %}
+      {% else %}
+        <p class="pl-empty">Pick a collection in the theme editor to populate the shop.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Purelane — Shop grid",
+  "tag": "section",
+  "class": "pl-section-wrap",
+  "settings": [
+    {"type":"text","id":"anchor","label":"Section anchor","default":"shop"},
+    {"type":"text","id":"kicker","label":"Kicker","default":"Bestsellers"},
+    {"type":"text","id":"title","label":"Title","default":"Loved by 30,000 homes"},
+    {"type":"collection","id":"collection","label":"Collection"},
+    {"type":"range","id":"limit","label":"Max products","min":4,"max":12,"step":1,"default":8}
+  ],
+  "presets":[{"name":"Purelane — Shop grid"}]
+}
+{% endschema %}

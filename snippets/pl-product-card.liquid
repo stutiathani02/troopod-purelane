@@ -1,0 +1,79 @@
+{%- comment -%}
+  Purelane product card — reusable across Shop, Combos, Bundles.
+  Params:
+    product      (required)
+    style        'grid' | 'combo' | 'tier'  (default 'grid')
+    show_pill    default true
+    show_rating  default true
+    show_add     default true
+{%- endcomment -%}
+
+{%- liquid
+  assign style = style | default: 'grid'
+  if show_pill == nil
+    assign show_pill = true
+  endif
+  if show_rating == nil
+    assign show_rating = true
+  endif
+  if show_add == nil
+    assign show_add = true
+  endif
+  assign badge = product.metafields.custom.badge
+  assign rating = product.metafields.custom.rating
+  if rating == blank
+    assign rating = 4.8
+  endif
+  assign review_count = product.metafields.custom.review_count | default: 0
+  assign img = product.featured_media.preview_image
+  assign compare = product.compare_at_price
+-%}
+
+<article class="pl-card pl-card--{{ style }}{% unless product.available %} is-sold-out{% endunless %}"
+         data-product-id="{{ product.id }}">
+  <a class="pl-card__link" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+    <div class="pl-card__shot">
+      {% if show_pill and badge != blank %}
+        <span class="pl-card__pill">{{ badge }}</span>
+      {% endif %}
+      {% if img %}
+        {{ img | image_url: width: 400 | image_tag:
+             loading: 'lazy',
+             width: 400,
+             height: 400,
+             sizes: '(min-width:960px) 22vw, (min-width:640px) 40vw, 80vw',
+             widths: '200,300,400,600,800',
+             class: 'pl-card__img',
+             alt: product.title }}
+      {% else %}
+        <span class="pl-card__img pl-card__img--empty" aria-hidden="true"></span>
+      {% endif %}
+    </div>
+    <h3 class="pl-card__title" title="{{ product.title | escape }}">{{ product.title }}</h3>
+    {% if show_rating %}
+      <div class="pl-card__rate" aria-label="Rated {{ rating }} out of 5">
+        <b aria-hidden="true">★ {{ rating }}</b>
+        {% if review_count > 0 %}<span>{{ review_count }} reviews</span>{% endif %}
+      </div>
+    {% endif %}
+    <div class="pl-card__pr">
+      <strong>{{ product.price | money }}</strong>
+      {% if compare and compare > product.price %}
+        <s>{{ compare | money }}</s>
+        {%- assign pct = compare | minus: product.price | times: 100.0 | divided_by: compare | round -%}
+        <em>{{ pct }}% off</em>
+      {% endif %}
+    </div>
+  </a>
+  {% if show_add %}
+    {% if product.available %}
+      <button class="pl-btn pl-btn--ghost pl-card__add"
+              type="button"
+              data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+        Add to cart
+      </button>
+    {% else %}
+      <button class="pl-btn pl-btn--ghost pl-card__add" type="button" disabled>Sold out</button>
+    {% endif %}
+  {% endif %}
+</article>

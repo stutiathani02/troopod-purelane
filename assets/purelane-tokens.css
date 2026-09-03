@@ -1,0 +1,44 @@
+:root{
+  --pl-bg:            #f4f0fb;
+  --pl-bg-2:          #e2daf3;
+  --pl-surface:       #ffffff;
+  --pl-ink:           #241a3d;
+  --pl-ink-strong:    #17102b;
+  --pl-muted:         rgba(36,26,61,.72);
+  --pl-mute-2:        rgba(36,26,61,.52);
+  --pl-brand:         #4b3a8f;
+  --pl-brand-lt:      #6b55b8;
+  --pl-accent:        #b8701c;
+  --pl-accent-2:      #c9761d;
+  --pl-lime:          #4f7d10;
+  --pl-line:          rgba(75,58,143,.16);
+  --pl-glass:         linear-gradient(158deg,rgba(255,255,255,.80),rgba(236,230,247,.56) 58%,rgba(222,212,240,.50));
+  --pl-glass-shadow:  0 22px 54px rgba(58,44,112,.14);
+  --pl-glass-inset:   inset 0 1px 0 rgba(255,255,255,.6);
+  --pl-r:             26px;
+  --pl-r-sm:          16px;
+  --pl-maxw:          1180px;
+  --pl-sec-y:         clamp(34px, 6vw, 72px);
+  --pl-ease:          cubic-bezier(.2,.7,.2,1);
+  --pl-font-display:  'Outfit', system-ui, sans-serif;
+  --pl-font-body:     'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.pl-wrap{max-width:var(--pl-maxw); margin:0 auto; padding:0 18px}
+.pl-section{padding:var(--pl-sec-y) 0}
+.pl-kicker{display:inline-block; font:700 11px/1 var(--pl-font-body); letter-spacing:.18em; text-transform:uppercase; color:var(--pl-brand); margin-bottom:12px}
+.pl-h2{font:800 clamp(28px, 4.5vw, 44px)/1.05 var(--pl-font-display); color:var(--pl-ink-strong); text-wrap:balance; margin:0}
+.pl-lede{max-width:640px; margin:14px auto 0; color:var(--pl-muted); font-size:14.5px; line-height:1.55; text-align:center}
+.pl-visually-hidden{position:absolute; clip:rect(0 0 0 0); width:1px; height:1px; overflow:hidden}
+
+.pl-btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 16px; border-radius:12px; border:1px solid transparent; font:700 12.5px/1 var(--pl-font-body); letter-spacing:.06em; cursor:pointer; transition:.2s var(--pl-ease); text-decoration:none}
+.pl-btn--primary{background:var(--pl-brand); color:#fff}
+.pl-btn--primary:hover{background:var(--pl-brand-lt)}
+.pl-btn--ghost{background:rgba(255,255,255,.6); color:var(--pl-ink-strong); border-color:var(--pl-line)}
+.pl-btn--ghost:hover{background:#fff}
+.pl-btn:focus-visible{outline:2px solid var(--pl-accent); outline-offset:2px}
+.pl-btn[disabled]{opacity:.5; cursor:not-allowed}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important}
+}
