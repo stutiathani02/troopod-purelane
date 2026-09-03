@@ -1,0 +1,101 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="pl-hero" aria-labelledby="pl-hero-title-{{ section.id }}">
+  <div class="pl-hero__bg" aria-hidden="true"></div>
+  <div class="pl-hero__grid pl-wrap">
+    <div class="pl-hero__copy">
+      <h1 id="pl-hero-title-{{ section.id }}" class="pl-hero__h1">
+        {{ section.settings.headline_a }}<br>
+        {{ section.settings.headline_b }}<br>
+        <span class="pl-hero__accent">{{ section.settings.headline_c }}</span>
+      </h1>
+      {% if section.settings.lede != blank %}
+        <p class="pl-hero__lede">{{ section.settings.lede }}</p>
+      {% endif %}
+      <div class="pl-hero__cta">
+        {% if section.settings.cta1_text != blank %}
+          <a class="pl-btn pl-btn--primary" href="{{ section.settings.cta1_url | default: '#' }}">{{ section.settings.cta1_text }}</a>
+        {% endif %}
+        {% if section.settings.cta2_text != blank %}
+          <a class="pl-btn pl-btn--ghost" href="{{ section.settings.cta2_url | default: '#' }}">{{ section.settings.cta2_text }}</a>
+        {% endif %}
+      </div>
+      {% if section.blocks.size > 0 %}
+        <ul class="pl-hero__badges">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'badge' -%}
+              <li {{ block.shopify_attributes }}>
+                <span class="pl-hero__badge">{{ block.settings.label }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {% endif %}
+    </div>
+    <div class="pl-hero__prod">
+      {% assign hp = section.settings.hero_product %}
+      {% if hp != blank and hp.featured_media %}
+        {{ hp.featured_media | image_url: width: 800 | image_tag:
+             width: 800, height: 1200,
+             fetchpriority: 'high',
+             sizes: '(min-width:960px) 40vw, 80vw',
+             widths: '400,600,800,1000',
+             class: 'pl-hero__img',
+             alt: hp.title }}
+      {% else %}
+        <div class="pl-hero__img pl-hero__img--empty" aria-hidden="true"></div>
+      {% endif %}
+      {% if section.settings.tag_label != blank or section.settings.tag_price != blank %}
+        <div class="pl-hero__tag">
+          {% if section.settings.tag_label != blank %}<span class="pl-hero__tag-lbl">{{ section.settings.tag_label }}</span>{% endif %}
+          <span class="pl-hero__tag-val">
+            {% if section.settings.tag_price != blank %}<strong>{{ section.settings.tag_price }}</strong>{% endif %}
+            {% if section.settings.tag_compare != blank %}<s>{{ section.settings.tag_compare }}</s>{% endif %}
+          </span>
+          {% if section.settings.tag_save != blank %}<span class="pl-hero__tag-cut">{{ section.settings.tag_save }}</span>{% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name":"Purelane — Hero",
+  "tag":"section",
+  "class":"pl-section-wrap",
+  "settings":[
+    {"type":"header","content":"Headline"},
+    {"type":"text","id":"headline_a","label":"Headline line 1","default":"Clean"},
+    {"type":"text","id":"headline_b","label":"Headline line 2","default":"That"},
+    {"type":"text","id":"headline_c","label":"Accent word","default":"Lasts"},
+    {"type":"textarea","id":"lede","label":"Lede","default":"Homecare that works on the toughest grime, made from plants. Kind to your home, your family and the world outside it."},
+    {"type":"header","content":"Buttons"},
+    {"type":"text","id":"cta1_text","label":"Primary CTA text","default":"Shop bestsellers"},
+    {"type":"url","id":"cta1_url","label":"Primary CTA link"},
+    {"type":"text","id":"cta2_text","label":"Secondary CTA text","default":"How it works"},
+    {"type":"url","id":"cta2_url","label":"Secondary CTA link"},
+    {"type":"header","content":"Hero product"},
+    {"type":"product","id":"hero_product","label":"Hero product"},
+    {"type":"text","id":"tag_label","label":"Tag label","default":"Single bottle"},
+    {"type":"text","id":"tag_price","label":"Tag price","default":"₹200"},
+    {"type":"text","id":"tag_compare","label":"Tag compare-at","default":"₹299"},
+    {"type":"text","id":"tag_save","label":"Tag save copy","default":"33% off"}
+  ],
+  "blocks":[
+    {"type":"badge","name":"Badge","settings":[
+      {"type":"text","id":"label","label":"Badge text","default":"Plant powered"}
+    ]}
+  ],
+  "max_blocks":3,
+  "presets":[{
+    "name":"Purelane — Hero",
+    "blocks":[
+      {"type":"badge","settings":{"label":"Plant powered"}},
+      {"type":"badge","settings":{"label":"Safe for kids & pets"}},
+      {"type":"badge","settings":{"label":"Zero harsh chemicals"}}
+    ]
+  }]
+}
+{% endschema %}
