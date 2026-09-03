@@ -1,0 +1,82 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-combos.css' | asset_url | stylesheet_tag }}
+
+{%- assign entries = shop.metaobjects[section.settings.metaobject_type].values -%}
+
+<section id="{{ section.settings.anchor | default: 'combos' }}"
+         class="pl-section pl-combos"
+         aria-labelledby="pl-combos-title-{{ section.id }}">
+  <div class="pl-wrap">
+    <header class="pl-shop__head">
+      {% if section.settings.kicker != blank %}<span class="pl-kicker">{{ section.settings.kicker }}</span>{% endif %}
+      <h2 id="pl-combos-title-{{ section.id }}" class="pl-h2">{{ section.settings.title }}</h2>
+      {% if section.settings.lede != blank %}<p class="pl-lede">{{ section.settings.lede }}</p>{% endif %}
+    </header>
+
+    {% if entries.size > 0 %}
+      <div class="pl-combo-rail" role="region" aria-label="{{ section.settings.title | escape }}">
+        {%- for combo in entries -%}
+          {%- assign items = combo.products.value -%}
+          {%- assign mrp_paisa = 0 -%}
+          {%- for p in items -%}
+            {%- assign mrp_paisa = mrp_paisa | plus: p.price -%}
+          {%- endfor -%}
+          {%- assign combo_paisa = combo.price.value | times: 100 -%}
+          {%- assign save_paisa = mrp_paisa | minus: combo_paisa -%}
+          <article class="pl-combo{% if combo.is_highlight.value %} is-highlight{% endif %}">
+            <div class="pl-combo__tray">
+              {% if combo.save_label != blank %}<span class="pl-combo__save">{{ combo.save_label }}</span>{% endif %}
+              {% if combo.flag_label != blank %}<span class="pl-combo__flag">{{ combo.flag_label }}</span>{% endif %}
+              <div class="pl-combo__stack">
+                {%- for p in items -%}
+                  <span class="pl-combo__it">
+                    {% if p.featured_media %}
+                      {{ p.featured_media | image_url: width: 160 | image_tag: loading:'lazy', width:160, height:160, class:'pl-combo__pimg', alt: p.title }}
+                    {% else %}
+                      <span class="pl-combo__pimg pl-combo__pimg--empty" aria-hidden="true"></span>
+                    {% endif %}
+                    <span class="pl-combo__promise">{{ p.metafields.custom.short_promise | default: p.title }}</span>
+                  </span>
+                  {% unless forloop.last %}<span class="pl-combo__plus" aria-hidden="true">+</span>{% endunless %}
+                {%- endfor -%}
+              </div>
+            </div>
+            <div class="pl-combo__body">
+              <h3>{{ combo.title }}</h3>
+              <div class="pl-combo__cnt">{{ items.size }} products</div>
+              {% if combo.subtitle != blank %}<p class="pl-combo__inc">{{ combo.subtitle }}</p>{% endif %}
+              <div class="pl-combo__pr">
+                <strong>{{ combo_paisa | money }}</strong>
+                {% if mrp_paisa > combo_paisa %}
+                  <s>{{ mrp_paisa | money }}</s>
+                  <em>Save {{ save_paisa | money }}</em>
+                {% endif %}
+              </div>
+              <p class="pl-combo__fine">Inclusive of all taxes · COD available</p>
+              <a class="pl-btn {% if combo.is_highlight.value %}pl-btn--primary{% else %}pl-btn--ghost{% endif %}" href="{{ combo.cta_url | default: '#' }}">Shop bundle →</a>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+      <p class="pl-combo-rail__cue" aria-hidden="true">Swipe for more combos →</p>
+    {% else %}
+      <p class="pl-empty">No combos yet. Create them in Content → Metaobjects → Combo.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name":"Purelane — Combos rail",
+  "tag":"section",
+  "class":"pl-section-wrap",
+  "settings":[
+    {"type":"text","id":"anchor","label":"Section anchor","default":"combos"},
+    {"type":"text","id":"metaobject_type","label":"Metaobject type","default":"combo"},
+    {"type":"text","id":"kicker","label":"Kicker","default":"Pre-built to save you money"},
+    {"type":"text","id":"title","label":"Title","default":"Best selling combos"},
+    {"type":"textarea","id":"lede","label":"Lede","default":"Swipe through the boxes people order most. Each one is already priced below buying the products on their own."}
+  ],
+  "presets":[{"name":"Purelane — Combos rail"}]
+}
+{% endschema %}
