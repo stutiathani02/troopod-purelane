@@ -1,9 +1,15 @@
-/* Page background — lavender + soft mint wash */
+/* Page background — smooth lavender → mint down the page */
 body{
   background:
-    radial-gradient(1400px 700px at 15% -10%, rgba(138,117,201,.14), transparent 60%),
-    radial-gradient(1200px 800px at 100% 40%, rgba(79,143,62,.10), transparent 60%),
-    linear-gradient(180deg, #f6f2fc 0%, #f0e9f8 55%, #e6eee1 100%) !important;
+    radial-gradient(1400px 700px at 15% -10%, rgba(138,117,201,.16), transparent 60%),
+    radial-gradient(1200px 800px at 100% 55%, rgba(79,143,62,.14), transparent 60%),
+    linear-gradient(180deg,
+      #f6f2fc 0%,
+      #ede4f7 22%,
+      #e6ecec 46%,
+      #dfeee0 68%,
+      #d6ead4 100%) !important;
+  background-attachment: fixed !important;
 }
 
 /* Header pill override for Dawn */
