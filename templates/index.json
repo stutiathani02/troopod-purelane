@@ -412,6 +412,16 @@
       "settings": {
         "speed": 36
       }
+    },
+    "pl_sticky_cta_7mta4j": {
+      "type": "pl-sticky-cta",
+      "name": "Purelane — Sticky CTA",
+      "settings": {
+        "headline": "Pick any 3, pay ₹499",
+        "sub": "Free shipping, always",
+        "cta_text": "Build bundle",
+        "cta_url": ""
+      }
     }
   },
   "order": [
@@ -420,6 +430,7 @@
     "pl_shop_WGGDCh",
     "pl_combos_pz4h9N",
     "pl_bundles_VPWcaE",
+    "pl_sticky_cta_7mta4j",
     "pl_feature_grid_fcaezd",
     "pl_feature_grid_dFAiEy",
     "pl_reviews_LwF3Qa",
