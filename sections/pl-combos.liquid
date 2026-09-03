@@ -21,7 +21,7 @@
           {%- for p in items -%}
             {%- assign mrp_paisa = mrp_paisa | plus: p.price -%}
           {%- endfor -%}
-          {%- assign combo_rupees = combo.price | default: combo.price.value -%}
+          {%- assign combo_rupees = combo.prices | default: combo.price -%}
           {%- assign combo_paisa = combo_rupees | times: 100 -%}
           {%- assign save_paisa = mrp_paisa | minus: combo_paisa -%}
           <article class="pl-combo{% if combo.is_highlight %} is-highlight{% endif %}">
@@ -46,7 +46,6 @@
               <h3>{{ combo.title }}</h3>
               <div class="pl-combo__cnt">{{ items.size }} products</div>
               {% if combo.subtitle != blank %}<p class="pl-combo__inc">{{ combo.subtitle }}</p>{% endif %}
-              <div style="font-size:11px;color:red;background:#fff;padding:6px;word-break:break-all">DEBUG price=[{{ combo.price }}] prices=[{{ combo.prices }}] Price=[{{ combo.Price }}] handle=[{{ combo.system.handle }}] type=[{{ combo.system.type }}]</div>
               <div class="pl-combo__pr">
                 <strong>{{ combo_paisa | money }}</strong>
                 {% if mrp_paisa > combo_paisa %}
