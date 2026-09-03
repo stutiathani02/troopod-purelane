@@ -1,0 +1,90 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-feature-grid.css' | asset_url | stylesheet_tag }}
+
+<section class="pl-fg{% if section.settings.panel %} pl-fg--panel{% endif %}"
+         aria-labelledby="pl-fg-{{ section.id }}">
+  <div class="pl-wrap">
+    <div class="pl-fg__inner">
+      <header class="pl-fg__head">
+        {% if section.settings.kicker != blank %}<span class="pl-kicker">{{ section.settings.kicker }}</span>{% endif %}
+        {% if section.settings.title != blank %}<h2 id="pl-fg-{{ section.id }}" class="pl-h2">{{ section.settings.title }}</h2>{% endif %}
+        {% if section.settings.lede != blank %}<p class="pl-lede">{{ section.settings.lede }}</p>{% endif %}
+      </header>
+      <div class="pl-fg__grid cols-{{ section.settings.cols }}">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'item' -%}
+            <div class="pl-fg__item{% if block.settings.ring %} pl-fg__item--ring{% endif %}" {{ block.shopify_attributes }}>
+              <div class="pl-fg__icon{% if block.settings.accent %} pl-fg__icon--accent{% endif %}"
+                   {% if block.settings.ring %}style="--val: {{ block.settings.ring_value }}"{% endif %}>
+                <span>{{ block.settings.icon | default: '★' }}</span>
+              </div>
+              {% if block.settings.title != blank %}<h3 class="pl-fg__title">{{ block.settings.title }}</h3>{% endif %}
+              {% if block.settings.desc != blank %}<p class="pl-fg__desc">{{ block.settings.desc }}</p>{% endif %}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name":"Purelane — Feature grid",
+  "tag":"section",
+  "class":"pl-section-wrap",
+  "settings":[
+    {"type":"text","id":"kicker","label":"Kicker","default":"Sourced from nature"},
+    {"type":"text","id":"title","label":"Title","default":"Ingredients we use"},
+    {"type":"textarea","id":"lede","label":"Lede"},
+    {"type":"select","id":"cols","label":"Columns (desktop)","default":"5","options":[
+      {"value":"2","label":"2"},{"value":"3","label":"3"},{"value":"4","label":"4"},{"value":"5","label":"5"}
+    ]},
+    {"type":"checkbox","id":"panel","label":"Wrap in a glass panel","default":false}
+  ],
+  "blocks":[
+    {"type":"item","name":"Item","settings":[
+      {"type":"text","id":"icon","label":"Icon (emoji or 1–2 chars)","default":"★"},
+      {"type":"text","id":"title","label":"Title","default":"Feature"},
+      {"type":"textarea","id":"desc","label":"Description"},
+      {"type":"checkbox","id":"accent","label":"Use accent (amber) icon","default":false},
+      {"type":"checkbox","id":"ring","label":"Show as stat ring","default":false},
+      {"type":"range","id":"ring_value","label":"Ring % (only when stat ring is on)","min":0,"max":100,"step":5,"default":95}
+    ]}
+  ],
+  "max_blocks":8,
+  "presets":[
+    {
+      "name":"Purelane — Ingredients",
+      "settings":{"kicker":"Sourced from nature","title":"Ingredients we use","cols":"5"},
+      "blocks":[
+        {"type":"item","settings":{"icon":"🥥","title":"Coconut","desc":"Plant-derived cleansers that lift grease"}},
+        {"type":"item","settings":{"icon":"🍊","title":"Orange peel","desc":"Natural degreaser and fresh citrus lift"}},
+        {"type":"item","settings":{"icon":"🌰","title":"Soap nut","desc":"Traditional plant foaming agent"}},
+        {"type":"item","settings":{"icon":"🌿","title":"Neem","desc":"Time-tested antibacterial from the tree"}},
+        {"type":"item","settings":{"icon":"🌾","title":"Lemongrass","desc":"Clean fragrance with nothing synthetic"}}
+      ]
+    },
+    {
+      "name":"Purelane — Why bundles",
+      "settings":{"kicker":"Why bundles","title":"Why bundles beat buying single","cols":"4","panel":true},
+      "blocks":[
+        {"type":"item","settings":{"icon":"%","title":"Save up to 45%","desc":"Every bundle costs less than the products bought individually","accent":true}},
+        {"type":"item","settings":{"icon":"₹","title":"One flat price","desc":"No maths at checkout. Pick your box, that's it","accent":true}},
+        {"type":"item","settings":{"icon":"✓","title":"Curated by experts","desc":"Combinations tested for real homes, not for the shelf","accent":true}},
+        {"type":"item","settings":{"icon":"→","title":"Free shipping always","desc":"On every bundle, across India","accent":true}}
+      ]
+    },
+    {
+      "name":"Purelane — Proof stats",
+      "settings":{"kicker":"The proof","title":"Tough on grime. Gentle on everything else.","cols":"4"},
+      "blocks":[
+        {"type":"item","settings":{"icon":"99%","title":"Germ kill","ring":true,"ring_value":99}},
+        {"type":"item","settings":{"icon":"0","title":"Sulphates","ring":true,"ring_value":100}},
+        {"type":"item","settings":{"icon":"100%","title":"Plant based","ring":true,"ring_value":100}},
+        {"type":"item","settings":{"icon":"4.8","title":"Rated","ring":true,"ring_value":96}}
+      ]
+    }
+  ]
+}
+{% endschema %}
