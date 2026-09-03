@@ -9,6 +9,17 @@
  */
 {
   "sections": {
+    "pl_shop_WGGDCh": {
+      "type": "pl-shop",
+      "name": "Purelane — Shop grid",
+      "settings": {
+        "anchor": "shop",
+        "kicker": "Bestsellers",
+        "title": "Loved by 30,000 homes",
+        "collection": "frontpage",
+        "limit": 8
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -76,21 +87,37 @@
         "padding_bottom": 36
       }
     },
-    "pl_shop_WGGDCh": {
-      "type": "pl-shop",
-      "name": "Purelane — Shop grid",
+    "pl_reviews_LwF3Qa": {
+      "type": "pl-reviews",
+      "name": "Purelane — Reviews rail",
       "settings": {
-        "anchor": "shop",
-        "kicker": "Bestsellers",
-        "title": "Loved by 30,000 homes",
-        "collection": "frontpage",
-        "limit": 8
+        "anchor": "reviews",
+        "metaobject_type": "review",
+        "kicker": "That's what they said",
+        "title": "Reviews",
+        "aggregate_rating": "4.8",
+        "aggregate_count": "12 lakh+",
+        "aggregate_label": "reviews across products",
+        "speed": 50
+      }
+    },
+    "pl_combos_pz4h9N": {
+      "type": "pl-combos",
+      "name": "Purelane — Combos rail",
+      "settings": {
+        "anchor": "combos",
+        "metaobject_type": "combo",
+        "kicker": "Pre-built to save you money",
+        "title": "Best selling combos",
+        "lede": "Swipe through the boxes people order most. Each one is already priced below buying the products on their own."
       }
     }
   },
   "order": [
     "pl_shop_WGGDCh",
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "pl_reviews_LwF3Qa",
+    "pl_combos_pz4h9N"
   ]
 }
