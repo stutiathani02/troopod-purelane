@@ -21,9 +21,10 @@
           {%- for p in items -%}
             {%- assign mrp_paisa = mrp_paisa | plus: p.price -%}
           {%- endfor -%}
-          {%- assign combo_paisa = combo.price.value | times: 100 -%}
+          {%- assign combo_rupees = combo.price | default: combo.price.value -%}
+          {%- assign combo_paisa = combo_rupees | times: 100 -%}
           {%- assign save_paisa = mrp_paisa | minus: combo_paisa -%}
-          <article class="pl-combo{% if combo.is_highlight.value %} is-highlight{% endif %}">
+          <article class="pl-combo{% if combo.is_highlight %} is-highlight{% endif %}">
             <div class="pl-combo__tray">
               {% if combo.save_label != blank %}<span class="pl-combo__save">{{ combo.save_label }}</span>{% endif %}
               {% if combo.flag_label != blank %}<span class="pl-combo__flag">{{ combo.flag_label }}</span>{% endif %}
@@ -53,7 +54,7 @@
                 {% endif %}
               </div>
               <p class="pl-combo__fine">Inclusive of all taxes · COD available</p>
-              <a class="pl-btn {% if combo.is_highlight.value %}pl-btn--primary{% else %}pl-btn--ghost{% endif %}" href="{{ combo.cta_url | default: '#' }}">Shop bundle →</a>
+              <a class="pl-btn {% if combo.is_highlight %}pl-btn--primary{% else %}pl-btn--ghost{% endif %}" href="{{ combo.cta_url | default: '#' }}">Shop bundle →</a>
             </div>
           </article>
         {%- endfor -%}
