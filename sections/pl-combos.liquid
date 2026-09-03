@@ -46,6 +46,7 @@
               <h3>{{ combo.title }}</h3>
               <div class="pl-combo__cnt">{{ items.size }} products</div>
               {% if combo.subtitle != blank %}<p class="pl-combo__inc">{{ combo.subtitle }}</p>{% endif %}
+              <div style="font-size:11px;color:red;background:#fff;padding:6px">DEBUG price=[{{ combo.price }}] price.value=[{{ combo.price.value }}] price.type=[{{ combo.price.type }}] fields={% for f in combo.system.fields %}{{ f.key }}={{ f.value }},{% endfor %}</div>
               <div class="pl-combo__pr">
                 <strong>{{ combo_paisa | money }}</strong>
                 {% if mrp_paisa > combo_paisa %}
