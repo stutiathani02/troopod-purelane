@@ -1,0 +1,25 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-sticky-cta.css' | asset_url | stylesheet_tag }}
+
+<div class="pl-sticky" role="complementary" aria-label="Bundle offer">
+  <span class="pl-sticky__lbl">
+    <b>{{ section.settings.headline }}</b>
+    <span>{{ section.settings.sub }}</span>
+  </span>
+  <a class="pl-btn" href="{{ section.settings.cta_url | default: '#bundles' }}">{{ section.settings.cta_text }}</a>
+</div>
+
+{% schema %}
+{
+  "name":"Purelane — Sticky CTA",
+  "tag":"section",
+  "class":"pl-section-wrap",
+  "settings":[
+    {"type":"text","id":"headline","label":"Headline","default":"Pick any 3, pay ₹499"},
+    {"type":"text","id":"sub","label":"Sub-line","default":"Free shipping, always"},
+    {"type":"text","id":"cta_text","label":"CTA text","default":"Build bundle"},
+    {"type":"url","id":"cta_url","label":"CTA link"}
+  ],
+  "presets":[{"name":"Purelane — Sticky CTA"}]
+}
+{% endschema %}

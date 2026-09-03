@@ -1,0 +1,49 @@
+/* Page background — soft radial wash on top of Dawn's own bg */
+body{
+  background:
+    radial-gradient(1400px 700px at 15% -10%, rgba(107,85,184,.10), transparent 60%),
+    radial-gradient(1200px 800px at 100% 30%, rgba(184,112,28,.06), transparent 60%),
+    linear-gradient(180deg, #faf7fd 0%, #f4f0fb 60%, #ece6f7 100%) !important;
+}
+
+/* Header pill override for Dawn */
+.header-wrapper, .section-header{
+  background:transparent !important; border:0 !important;
+}
+.header-wrapper .header,
+.header,
+header-component{
+  max-width:calc(var(--pl-maxw) - 40px);
+  margin:14px auto 0;
+  padding:10px 18px;
+  background:rgba(255,255,255,.72) !important;
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border:1px solid var(--pl-line);
+  border-radius:999px;
+  box-shadow:0 8px 24px rgba(58,44,112,.10);
+  position:sticky; top:14px; z-index:50;
+}
+.header__heading, .header__heading-link{
+  font-family:var(--pl-font-display) !important; font-weight:800; letter-spacing:.02em;
+  color:var(--pl-ink-strong) !important;
+}
+.header__inline-menu a, .header__menu-item{
+  font:600 12.5px var(--pl-font-body) !important; color:var(--pl-ink) !important;
+}
+.header__inline-menu a:hover{color:var(--pl-brand) !important}
+
+/* Reveal-on-scroll utility */
+.pl-reveal{opacity:0; transform:translateY(24px); filter:blur(6px); transition:opacity .8s var(--pl-ease), transform .8s var(--pl-ease), filter .8s var(--pl-ease)}
+.pl-reveal.pl-in{opacity:1; transform:none; filter:none}
+@media (prefers-reduced-motion: reduce){
+  .pl-reveal{opacity:1; transform:none; filter:none; transition:none}
+}
+
+/* Give every Purelane section a reveal wrapper */
+.pl-section-wrap > section{opacity:0; transform:translateY(30px); filter:blur(6px); transition:opacity .9s var(--pl-ease), transform .9s var(--pl-ease), filter .9s var(--pl-ease)}
+.pl-section-wrap.pl-in > section{opacity:1; transform:none; filter:none}
+.pl-section-wrap.pl-in-instant > section{opacity:1; transform:none; filter:none; transition:none}
+@media (prefers-reduced-motion: reduce){
+  .pl-section-wrap > section{opacity:1; transform:none; filter:none; transition:none}
+}
