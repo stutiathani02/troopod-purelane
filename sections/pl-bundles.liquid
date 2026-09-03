@@ -16,12 +16,9 @@
           <article class="pl-tier{% if block.settings.highlight %} is-best{% endif %}" {{ block.shopify_attributes }}>
             {% if block.settings.tag != blank %}<span class="pl-tier__tag">{{ block.settings.tag }}</span>{% endif %}
             <div class="pl-tier__pix">
-              {%- assign p1 = block.settings.product_1 -%}
-              {%- assign p2 = block.settings.product_2 -%}
-              {%- assign p3 = block.settings.product_3 -%}
-              {%- assign p4 = block.settings.product_4 -%}
-              {%- assign p5 = block.settings.product_5 -%}
-              {%- for p in p1,p2,p3,p4,p5 -%}
+              {%- for i in (1..5) -%}
+                {%- assign key = 'product_' | append: i -%}
+                {%- assign p = block.settings[key] -%}
                 {%- if p != blank -%}
                   {%- if p.featured_media -%}
                     {{ p.featured_media | image_url: width: 200 | image_tag: width:200, height:200, loading:'lazy', class:'pl-tier__pimg', alt: p.title }}
