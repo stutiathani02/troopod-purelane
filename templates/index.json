@@ -53,18 +53,67 @@
         "tag_save": "33% off"
       }
     },
-    "pl_reviews_LwF3Qa": {
-      "type": "pl-reviews",
-      "name": "Purelane — Reviews rail",
+    "pl_feature_grid_CFbw44": {
+      "type": "pl-feature-grid",
+      "blocks": {
+        "item_B6C9h6": {
+          "type": "item",
+          "settings": {
+            "icon": "99%",
+            "title": "Germ kill",
+            "desc": "",
+            "accent": false,
+            "ring": true,
+            "ring_value": 99
+          }
+        },
+        "item_HXzebd": {
+          "type": "item",
+          "settings": {
+            "icon": "0",
+            "title": "Sulphates",
+            "desc": "",
+            "accent": false,
+            "ring": true,
+            "ring_value": 100
+          }
+        },
+        "item_LphEa8": {
+          "type": "item",
+          "settings": {
+            "icon": "100%",
+            "title": "Plant based",
+            "desc": "",
+            "accent": false,
+            "ring": true,
+            "ring_value": 100
+          }
+        },
+        "item_yzaVrc": {
+          "type": "item",
+          "settings": {
+            "icon": "4.8",
+            "title": "Rated",
+            "desc": "",
+            "accent": false,
+            "ring": true,
+            "ring_value": 96
+          }
+        }
+      },
+      "block_order": [
+        "item_B6C9h6",
+        "item_HXzebd",
+        "item_LphEa8",
+        "item_yzaVrc"
+      ],
+      "name": "Purelane — Proof stats",
       "settings": {
-        "anchor": "reviews",
-        "metaobject_type": "review",
-        "kicker": "That's what they said",
-        "title": "Reviews",
-        "aggregate_rating": "4.8",
-        "aggregate_count": "12 lakh+",
-        "aggregate_label": "reviews across products",
-        "speed": 50
+        "kicker": "The proof",
+        "title": "Tough on grime. Gentle on everything else.",
+        "lede": "",
+        "cols": "4",
+        "panel": false
       }
     },
     "pl_shop_WGGDCh": {
@@ -169,6 +218,69 @@
         "lede": "Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way."
       }
     },
+    "pl_feature_grid_fcaezd": {
+      "type": "pl-feature-grid",
+      "blocks": {
+        "item_NQFAfM": {
+          "type": "item",
+          "settings": {
+            "icon": "%",
+            "title": "Save up to 45%",
+            "desc": "Every bundle costs less than the products bought individually",
+            "accent": true,
+            "ring": false,
+            "ring_value": 95
+          }
+        },
+        "item_WkRzaV": {
+          "type": "item",
+          "settings": {
+            "icon": "₹",
+            "title": "One flat price",
+            "desc": "No maths at checkout. Pick your box, that's it",
+            "accent": true,
+            "ring": false,
+            "ring_value": 95
+          }
+        },
+        "item_UPETXR": {
+          "type": "item",
+          "settings": {
+            "icon": "✓",
+            "title": "Curated by experts",
+            "desc": "Combinations tested for real homes, not for the shelf",
+            "accent": true,
+            "ring": false,
+            "ring_value": 95
+          }
+        },
+        "item_QCYyzE": {
+          "type": "item",
+          "settings": {
+            "icon": "→",
+            "title": "Free shipping always",
+            "desc": "On every bundle, across India",
+            "accent": true,
+            "ring": false,
+            "ring_value": 95
+          }
+        }
+      },
+      "block_order": [
+        "item_NQFAfM",
+        "item_WkRzaV",
+        "item_UPETXR",
+        "item_QCYyzE"
+      ],
+      "name": "Purelane — Why bundles",
+      "settings": {
+        "kicker": "Why bundles",
+        "title": "Why bundles beat buying single",
+        "lede": "",
+        "cols": "4",
+        "panel": true
+      }
+    },
     "pl_feature_grid_dFAiEy": {
       "type": "pl-feature-grid",
       "blocks": {
@@ -244,130 +356,61 @@
         "panel": false
       }
     },
-    "pl_feature_grid_CFbw44": {
-      "type": "pl-feature-grid",
-      "blocks": {
-        "item_B6C9h6": {
-          "type": "item",
-          "settings": {
-            "icon": "99%",
-            "title": "Germ kill",
-            "desc": "",
-            "accent": false,
-            "ring": true,
-            "ring_value": 99
-          }
-        },
-        "item_HXzebd": {
-          "type": "item",
-          "settings": {
-            "icon": "0",
-            "title": "Sulphates",
-            "desc": "",
-            "accent": false,
-            "ring": true,
-            "ring_value": 100
-          }
-        },
-        "item_LphEa8": {
-          "type": "item",
-          "settings": {
-            "icon": "100%",
-            "title": "Plant based",
-            "desc": "",
-            "accent": false,
-            "ring": true,
-            "ring_value": 100
-          }
-        },
-        "item_yzaVrc": {
-          "type": "item",
-          "settings": {
-            "icon": "4.8",
-            "title": "Rated",
-            "desc": "",
-            "accent": false,
-            "ring": true,
-            "ring_value": 96
-          }
-        }
-      },
-      "block_order": [
-        "item_B6C9h6",
-        "item_HXzebd",
-        "item_LphEa8",
-        "item_yzaVrc"
-      ],
-      "name": "Purelane — Proof stats",
+    "pl_reviews_LwF3Qa": {
+      "type": "pl-reviews",
+      "name": "Purelane — Reviews rail",
       "settings": {
-        "kicker": "The proof",
-        "title": "Tough on grime. Gentle on everything else.",
-        "lede": "",
-        "cols": "4",
-        "panel": false
+        "anchor": "reviews",
+        "metaobject_type": "review",
+        "kicker": "That's what they said",
+        "title": "Reviews",
+        "aggregate_rating": "4.8",
+        "aggregate_count": "12 lakh+",
+        "aggregate_label": "reviews across products",
+        "speed": 50
       }
     },
-    "pl_feature_grid_fcaezd": {
-      "type": "pl-feature-grid",
+    "pl_ticker_Maqihm": {
+      "type": "pl-ticker",
       "blocks": {
-        "item_NQFAfM": {
+        "item_NWGgDB": {
           "type": "item",
           "settings": {
-            "icon": "%",
-            "title": "Save up to 45%",
-            "desc": "Every bundle costs less than the products bought individually",
-            "accent": true,
-            "ring": false,
-            "ring_value": 95
+            "strong": "Free shipping",
+            "text": "on every bundle across India"
           }
         },
-        "item_WkRzaV": {
+        "item_FaXRbi": {
           "type": "item",
           "settings": {
-            "icon": "₹",
-            "title": "One flat price",
-            "desc": "No maths at checkout. Pick your box, that's it",
-            "accent": true,
-            "ring": false,
-            "ring_value": 95
+            "strong": "100% plant-based",
+            "text": "and non-toxic"
           }
         },
-        "item_UPETXR": {
+        "item_cf67re": {
           "type": "item",
           "settings": {
-            "icon": "✓",
-            "title": "Curated by experts",
-            "desc": "Combinations tested for real homes, not for the shelf",
-            "accent": true,
-            "ring": false,
-            "ring_value": 95
+            "strong": "Loved by",
+            "text": "30,000+ happy homes"
           }
         },
-        "item_QCYyzE": {
+        "item_fE6YmQ": {
           "type": "item",
           "settings": {
-            "icon": "→",
-            "title": "Free shipping always",
-            "desc": "On every bundle, across India",
-            "accent": true,
-            "ring": false,
-            "ring_value": 95
+            "strong": "Buy 3",
+            "text": "at flat ₹499"
           }
         }
       },
       "block_order": [
-        "item_NQFAfM",
-        "item_WkRzaV",
-        "item_UPETXR",
-        "item_QCYyzE"
+        "item_NWGgDB",
+        "item_FaXRbi",
+        "item_cf67re",
+        "item_fE6YmQ"
       ],
-      "name": "Purelane — Why bundles",
+      "name": "Purelane — Ticker",
       "settings": {
-        "kicker": "Why bundles",
-        "title": "Why bundles beat buying single",
-        "lede": "",
-        "cols": "4",
-        "panel": true
+        "speed": 36
       }
     }
   },
@@ -379,6 +422,7 @@
     "pl_bundles_VPWcaE",
     "pl_feature_grid_fcaezd",
     "pl_feature_grid_dFAiEy",
-    "pl_reviews_LwF3Qa"
+    "pl_reviews_LwF3Qa",
+    "pl_ticker_Maqihm"
   ]
 }
