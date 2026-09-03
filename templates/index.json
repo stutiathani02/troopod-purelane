@@ -88,12 +88,93 @@
         "title": "Best selling combos",
         "lede": "Swipe through the boxes people order most. Each one is already priced below buying the products on their own."
       }
+    },
+    "pl_bundles_VPWcaE": {
+      "type": "pl-bundles",
+      "blocks": {
+        "tier_cJgxTp": {
+          "type": "tier",
+          "settings": {
+            "tag": "Starter",
+            "product_1": "",
+            "product_2": "",
+            "product_3": "",
+            "product_4": "",
+            "product_5": "",
+            "qty": "2",
+            "price": "₹349",
+            "compare": "₹598",
+            "per": "Flat ₹174 per product",
+            "b1": "Pick any two products",
+            "b2": "Free shipping across India",
+            "b3": "",
+            "cta_text": "Build this box",
+            "cta_url": "",
+            "highlight": false
+          }
+        },
+        "tier_P8pQMM": {
+          "type": "tier",
+          "settings": {
+            "tag": "Most popular",
+            "product_1": "",
+            "product_2": "",
+            "product_3": "",
+            "product_4": "",
+            "product_5": "",
+            "qty": "3",
+            "price": "₹499",
+            "compare": "₹897",
+            "per": "Flat ₹166 per product",
+            "b1": "Pick any two products",
+            "b2": "Free shipping across India",
+            "b3": "",
+            "cta_text": "Build bundle →",
+            "cta_url": "",
+            "highlight": true
+          }
+        },
+        "tier_BDFTdU": {
+          "type": "tier",
+          "settings": {
+            "tag": "Whole home",
+            "product_1": "",
+            "product_2": "",
+            "product_3": "",
+            "product_4": "",
+            "product_5": "",
+            "qty": "5",
+            "price": "₹799",
+            "compare": "₹1495",
+            "per": "Flat ₹160 per product",
+            "b1": "Pick any two products",
+            "b2": "Free shipping across India",
+            "b3": "",
+            "cta_text": "Build this box",
+            "cta_url": "",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "tier_cJgxTp",
+        "tier_P8pQMM",
+        "tier_BDFTdU"
+      ],
+      "name": "Purelane — Bundles",
+      "settings": {
+        "anchor": "bundles",
+        "kicker": "Build your bundle",
+        "title": "One box. Every room.",
+        "lede": "Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way."
+      }
     }
   },
   "order": [
     "pl_hero_GD7yXT",
     "pl_reviews_LwF3Qa",
     "pl_shop_WGGDCh",
-    "pl_combos_pz4h9N"
+    "pl_combos_pz4h9N",
+    "pl_bundles_VPWcaE"
   ]
 }
