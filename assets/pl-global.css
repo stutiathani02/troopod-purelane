@@ -1,9 +1,9 @@
-/* Page background — soft radial wash on top of Dawn's own bg */
+/* Page background — lavender + soft mint wash */
 body{
   background:
-    radial-gradient(1400px 700px at 15% -10%, rgba(107,85,184,.10), transparent 60%),
-    radial-gradient(1200px 800px at 100% 30%, rgba(184,112,28,.06), transparent 60%),
-    linear-gradient(180deg, #faf7fd 0%, #f4f0fb 60%, #ece6f7 100%) !important;
+    radial-gradient(1400px 700px at 15% -10%, rgba(138,117,201,.14), transparent 60%),
+    radial-gradient(1200px 800px at 100% 40%, rgba(79,143,62,.10), transparent 60%),
+    linear-gradient(180deg, #f6f2fc 0%, #f0e9f8 55%, #e6eee1 100%) !important;
 }
 
 /* Header pill override for Dawn */
