@@ -111,13 +111,58 @@
         "title": "Best selling combos",
         "lede": "Swipe through the boxes people order most. Each one is already priced below buying the products on their own."
       }
+    },
+    "pl_hero_GD7yXT": {
+      "type": "pl-hero",
+      "blocks": {
+        "badge_HJVV67": {
+          "type": "badge",
+          "settings": {
+            "label": "Plant powered"
+          }
+        },
+        "badge_xn8tet": {
+          "type": "badge",
+          "settings": {
+            "label": "Safe for kids & pets"
+          }
+        },
+        "badge_7RNRDW": {
+          "type": "badge",
+          "settings": {
+            "label": "Zero harsh chemicals"
+          }
+        }
+      },
+      "block_order": [
+        "badge_HJVV67",
+        "badge_xn8tet",
+        "badge_7RNRDW"
+      ],
+      "name": "Purelane — Hero",
+      "settings": {
+        "headline_a": "Clean",
+        "headline_b": "That",
+        "headline_c": "Lasts",
+        "lede": "Homecare that works on the toughest grime, made from plants. Kind to your home, your family and the world outside it.",
+        "cta1_text": "Shop bestsellers",
+        "cta1_url": "",
+        "cta2_text": "How it works",
+        "cta2_url": "",
+        "hero_product": "",
+        "tag_label": "Single bottle",
+        "tag_price": "₹200",
+        "tag_compare": "₹299",
+        "tag_save": "33% off"
+      }
     }
   },
   "order": [
+    "pl_hero_GD7yXT",
+    "pl_reviews_LwF3Qa",
     "pl_shop_WGGDCh",
     "image_banner",
     "featured_collection",
-    "pl_reviews_LwF3Qa",
     "pl_combos_pz4h9N"
   ]
 }
