@@ -1,0 +1,66 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-reviews.css' | asset_url | stylesheet_tag }}
+
+{%- assign entries = shop.metaobjects[section.settings.metaobject_type].values -%}
+
+<section id="{{ section.settings.anchor | default: 'reviews' }}"
+         class="pl-section pl-reviews"
+         aria-labelledby="pl-rev-{{ section.id }}">
+  <div class="pl-wrap pl-reviews__head">
+    {% if section.settings.kicker != blank %}
+      <span class="pl-kicker">{{ section.settings.kicker }}</span>
+    {% endif %}
+    <div class="pl-reviews__aggs">
+      <span class="pl-reviews__stars" aria-label="Rated {{ section.settings.aggregate_rating }} out of 5">★★★★★</span>
+      <b>{{ section.settings.aggregate_rating }}</b>
+      <span>·</span>
+      <b>{{ section.settings.aggregate_count }}</b>
+      <span>{{ section.settings.aggregate_label }}</span>
+    </div>
+    <h2 id="pl-rev-{{ section.id }}" class="pl-h2 pl-visually-hidden">{{ section.settings.title }}</h2>
+  </div>
+
+  {% if entries.size > 0 %}
+    <div class="pl-reviews__rail" tabindex="0" aria-label="Customer reviews, hover or focus to pause">
+      <div class="pl-reviews__track" style="--pl-speed: {{ section.settings.speed }}">
+        {%- for pass in (1..2) -%}
+          {%- for entry in entries -%}
+            <article class="pl-rcard"{% if pass == 2 %} aria-hidden="true"{% endif %}>
+              <div class="pl-rcard__stars" aria-hidden="true">
+                {%- assign r = entry.rating.value | default: 5 -%}
+                {%- for s in (1..r) -%}★{%- endfor -%}
+              </div>
+              <h3>{{ entry.title }}</h3>
+              <p>{{ entry.body }}</p>
+              <div class="pl-rcard__who">
+                <b>{{ entry.author }}</b>
+                {% if entry.product.value %}<span>· {{ entry.product.value.title }}</span>{% endif %}
+              </div>
+            </article>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {% else %}
+    <div class="pl-wrap"><p class="pl-empty">No reviews yet. Create some in Content → Metaobjects → Review.</p></div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name":"Purelane — Reviews rail",
+  "tag":"section",
+  "class":"pl-section-wrap",
+  "settings":[
+    {"type":"text","id":"anchor","default":"reviews"},
+    {"type":"text","id":"metaobject_type","label":"Metaobject type","default":"review"},
+    {"type":"text","id":"kicker","default":"That's what they said"},
+    {"type":"text","id":"title","default":"Reviews"},
+    {"type":"text","id":"aggregate_rating","default":"4.8"},
+    {"type":"text","id":"aggregate_count","default":"12 lakh+"},
+    {"type":"text","id":"aggregate_label","default":"reviews across products"},
+    {"type":"range","id":"speed","label":"Marquee seconds","min":20,"max":90,"step":5,"default":52}
+  ],
+  "presets":[{"name":"Purelane — Reviews rail"}]
+}
+{% endschema %}
