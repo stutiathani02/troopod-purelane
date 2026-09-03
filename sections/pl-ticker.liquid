@@ -1,0 +1,45 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-ticker.css' | asset_url | stylesheet_tag }}
+
+<section class="pl-ticker" aria-label="Announcements">
+  <div class="pl-ticker__track" style="--pl-ticker-speed: {{ section.settings.speed }}">
+    {%- for pass in (1..2) -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'item' -%}
+          <span class="pl-ticker__item"{% if pass == 2 %} aria-hidden="true"{% endif %}>
+            {% if block.settings.strong != blank %}<b>{{ block.settings.strong }}</b>{% endif %}
+            <span>{{ block.settings.text }}</span>
+            <span class="pl-ticker__dot" aria-hidden="true"></span>
+          </span>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name":"Purelane — Announcement ticker",
+  "tag":"section",
+  "class":"pl-section-wrap",
+  "settings":[
+    {"type":"range","id":"speed","label":"Marquee seconds","min":15,"max":80,"step":1,"default":32}
+  ],
+  "blocks":[
+    {"type":"item","name":"Message","settings":[
+      {"type":"text","id":"strong","label":"Highlight (optional)","default":"Free shipping"},
+      {"type":"text","id":"text","label":"Message","default":"on every bundle across India"}
+    ]}
+  ],
+  "max_blocks":8,
+  "presets":[{
+    "name":"Purelane — Announcement ticker",
+    "blocks":[
+      {"type":"item","settings":{"strong":"Free shipping","text":"on every bundle across India"}},
+      {"type":"item","settings":{"strong":"100% plant-based","text":"and non-toxic"}},
+      {"type":"item","settings":{"strong":"Loved by","text":"30,000+ happy homes"}},
+      {"type":"item","settings":{"strong":"Buy 3","text":"at flat ₹499"}}
+    ]
+  }]
+}
+{% endschema %}
