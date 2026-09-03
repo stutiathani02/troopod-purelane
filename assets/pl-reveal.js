@@ -1,5 +1,17 @@
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Header scrolled state
+  var body = document.body, raf = null;
+  function onScroll(){
+    if (raf) return;
+    raf = requestAnimationFrame(function(){
+      body.classList.toggle('pl-scrolled', window.scrollY > 40);
+      raf = null;
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
   var targets = document.querySelectorAll('.pl-reveal, .pl-section-wrap');
   if (reduce || !('IntersectionObserver' in window)){
     targets.forEach(function(el){ el.classList.add('pl-in','pl-in-instant'); });

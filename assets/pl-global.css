@@ -23,6 +23,23 @@ header-component{
   border-radius:999px;
   box-shadow:0 8px 24px rgba(58,44,112,.10);
   position:sticky; top:14px; z-index:50;
+  animation:pl-nav-in .8s var(--pl-ease) both;
+  transition:transform .35s var(--pl-ease), background .35s var(--pl-ease), box-shadow .35s var(--pl-ease), padding .35s var(--pl-ease);
+}
+@keyframes pl-nav-in{
+  from{transform:translateY(-24px); opacity:0}
+  to{transform:none; opacity:1}
+}
+body.pl-scrolled .header-wrapper .header,
+body.pl-scrolled .header,
+body.pl-scrolled header-component{
+  padding:6px 16px;
+  background:rgba(255,255,255,.92) !important;
+  box-shadow:0 12px 34px rgba(58,44,112,.16);
+  transform:translateY(-2px) scale(.985);
+}
+@media (prefers-reduced-motion: reduce){
+  .header-wrapper .header, .header, header-component{animation:none; transition:none}
 }
 .header__heading, .header__heading-link{
   font-family:var(--pl-font-display) !important; font-weight:800; letter-spacing:.02em;
