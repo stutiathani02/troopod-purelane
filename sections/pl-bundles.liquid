@@ -1,0 +1,97 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-bundles.css' | asset_url | stylesheet_tag }}
+
+<section id="{{ section.settings.anchor | default: 'bundles' }}"
+         class="pl-section pl-bundles"
+         aria-labelledby="pl-b-{{ section.id }}">
+  <div class="pl-wrap">
+    <div class="pl-bundles__intro">
+      {% if section.settings.kicker != blank %}<span class="pl-kicker">{{ section.settings.kicker }}</span>{% endif %}
+      <h2 id="pl-b-{{ section.id }}" class="pl-h2">{{ section.settings.title }}</h2>
+      {% if section.settings.lede != blank %}<p class="pl-lede">{{ section.settings.lede }}</p>{% endif %}
+    </div>
+    <div class="pl-tiers">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'tier' -%}
+          <article class="pl-tier{% if block.settings.highlight %} is-best{% endif %}" {{ block.shopify_attributes }}>
+            {% if block.settings.tag != blank %}<span class="pl-tier__tag">{{ block.settings.tag }}</span>{% endif %}
+            <div class="pl-tier__pix">
+              {%- assign p1 = block.settings.product_1 -%}
+              {%- assign p2 = block.settings.product_2 -%}
+              {%- assign p3 = block.settings.product_3 -%}
+              {%- assign p4 = block.settings.product_4 -%}
+              {%- assign p5 = block.settings.product_5 -%}
+              {%- for p in p1,p2,p3,p4,p5 -%}
+                {%- if p != blank -%}
+                  {%- if p.featured_media -%}
+                    {{ p.featured_media | image_url: width: 200 | image_tag: width:200, height:200, loading:'lazy', class:'pl-tier__pimg', alt: p.title }}
+                  {%- else -%}
+                    <span class="pl-tier__pimg pl-tier__pimg--empty" aria-hidden="true"></span>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            <div class="pl-tier__qty">
+              <b>{{ block.settings.qty }}</b>
+              <small>Products</small>
+            </div>
+            <div class="pl-tier__price">
+              {% if block.settings.price != blank %}<strong>{{ block.settings.price }}</strong>{% endif %}
+              {% if block.settings.compare != blank %}<s>{{ block.settings.compare }}</s>{% endif %}
+            </div>
+            {% if block.settings.per != blank %}<p class="pl-tier__per">{{ block.settings.per }}</p>{% endif %}
+            <ul>
+              {% if block.settings.b1 != blank %}<li>{{ block.settings.b1 }}</li>{% endif %}
+              {% if block.settings.b2 != blank %}<li>{{ block.settings.b2 }}</li>{% endif %}
+              {% if block.settings.b3 != blank %}<li>{{ block.settings.b3 }}</li>{% endif %}
+            </ul>
+            <a class="pl-btn {% if block.settings.highlight %}pl-btn--primary{% else %}pl-btn--ghost{% endif %}" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_text | default: 'Build this box' }}</a>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name":"Purelane — Bundles",
+  "tag":"section",
+  "class":"pl-section-wrap",
+  "settings":[
+    {"type":"text","id":"anchor","label":"Section anchor","default":"bundles"},
+    {"type":"text","id":"kicker","label":"Kicker","default":"Build your bundle"},
+    {"type":"text","id":"title","label":"Title","default":"One box. Every room."},
+    {"type":"textarea","id":"lede","label":"Lede","default":"Mix and match across kitchen, laundry, home and skin. One flat price, no code needed, free shipping either way."}
+  ],
+  "blocks":[
+    {"type":"tier","name":"Tier","settings":[
+      {"type":"text","id":"tag","label":"Tag","default":"Starter"},
+      {"type":"product","id":"product_1","label":"Preview product 1"},
+      {"type":"product","id":"product_2","label":"Preview product 2"},
+      {"type":"product","id":"product_3","label":"Preview product 3"},
+      {"type":"product","id":"product_4","label":"Preview product 4"},
+      {"type":"product","id":"product_5","label":"Preview product 5"},
+      {"type":"text","id":"qty","label":"Quantity number","default":"2"},
+      {"type":"text","id":"price","label":"Price","default":"₹349"},
+      {"type":"text","id":"compare","label":"Compare-at","default":"₹598"},
+      {"type":"text","id":"per","label":"Per-product line","default":"Flat ₹174 per product"},
+      {"type":"text","id":"b1","label":"Benefit 1","default":"Pick any two products"},
+      {"type":"text","id":"b2","label":"Benefit 2","default":"Free shipping across India"},
+      {"type":"text","id":"b3","label":"Benefit 3"},
+      {"type":"text","id":"cta_text","label":"CTA text","default":"Build this box"},
+      {"type":"url","id":"cta_url","label":"CTA link"},
+      {"type":"checkbox","id":"highlight","label":"Highlight this tier","default":false}
+    ]}
+  ],
+  "max_blocks":4,
+  "presets":[{
+    "name":"Purelane — Bundles",
+    "blocks":[
+      {"type":"tier","settings":{"tag":"Starter","qty":"2","price":"₹349","compare":"₹598","per":"Flat ₹174 per product"}},
+      {"type":"tier","settings":{"tag":"Most popular","qty":"3","price":"₹499","compare":"₹897","per":"Flat ₹166 per product","highlight":true,"cta_text":"Build bundle →"}},
+      {"type":"tier","settings":{"tag":"Whole home","qty":"5","price":"₹799","compare":"₹1495","per":"Flat ₹160 per product"}}
+    ]
+  }]
+}
+{% endschema %}
