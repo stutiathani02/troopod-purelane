@@ -11,6 +11,49 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "pl_ticker_iBgQ7K": {
+      "type": "pl-ticker",
+      "blocks": {
+        "item_B7eLDa": {
+          "type": "item",
+          "settings": {
+            "strong": "Free shipping",
+            "text": "on every bundle across India"
+          }
+        },
+        "item_BAw8Ci": {
+          "type": "item",
+          "settings": {
+            "strong": "100% plant-based",
+            "text": "and non-toxic"
+          }
+        },
+        "item_JUGwwf": {
+          "type": "item",
+          "settings": {
+            "strong": "Loved by",
+            "text": "30,000+ happy homes"
+          }
+        },
+        "item_eLEkD7": {
+          "type": "item",
+          "settings": {
+            "strong": "Buy 3",
+            "text": "at flat ₹499"
+          }
+        }
+      },
+      "block_order": [
+        "item_B7eLDa",
+        "item_BAw8Ci",
+        "item_JUGwwf",
+        "item_eLEkD7"
+      ],
+      "name": "Purelane — Ticker",
+      "settings": {
+        "speed": 32
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -31,6 +74,7 @@
     }
   },
   "order": [
+    "pl_ticker_iBgQ7K",
     "header"
   ]
 }
