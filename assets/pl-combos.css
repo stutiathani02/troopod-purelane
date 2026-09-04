@@ -2,7 +2,7 @@
   display:flex; gap:14px;
   overflow-x:auto; overflow-y:hidden;
   scroll-snap-type:x mandatory;
-  margin:20px -18px 0; padding:4px 18px 14px;
+  margin:20px -38px 0; padding:4px 38px 14px;
   scrollbar-width:none; -webkit-overflow-scrolling:touch;
   justify-content:safe center;
 }

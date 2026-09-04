@@ -27,7 +27,7 @@
   --pl-font-body:     'Inter', system-ui, -apple-system, sans-serif;
 }
 
-.pl-wrap{max-width:var(--pl-maxw); margin:0 auto; padding:0 18px}
+.pl-wrap{max-width:var(--pl-maxw); margin:0 auto; padding:0 38px}
 .pl-section{padding:var(--pl-sec-y) 0}
 .pl-kicker{display:inline-block; font:700 11px/1 var(--pl-font-body); letter-spacing:.18em; text-transform:uppercase; color:var(--pl-brand); margin-bottom:12px}
 .pl-h2{font:800 clamp(28px, 4.5vw, 44px)/1.05 var(--pl-font-display); color:var(--pl-ink-strong); text-wrap:balance; margin:0 0 12px; position:relative}

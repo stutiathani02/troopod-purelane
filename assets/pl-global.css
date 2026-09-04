@@ -1,7 +1,7 @@
 /* Prevent horizontal overflow at mobile */
 html, body{overflow-x:hidden}
 @media (max-width:600px){
-  .pl-wrap{padding:0 14px !important}
+  .pl-wrap{padding:0 22px !important}
   .pl-shelf{gap:10px !important}
 }
 
