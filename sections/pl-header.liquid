@@ -1,0 +1,61 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-header.css' | asset_url | stylesheet_tag }}
+
+<header class="pl-hdr" role="banner">
+  <div class="pl-hdr__pill">
+    <a class="pl-hdr__brand" href="{{ routes.root_url }}" aria-label="{{ section.settings.brand_name }} home">
+      <span class="pl-hdr__logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 C 8 6, 8 12, 12 14 C 16 12, 16 6, 12 2 Z M 6 14 C 10 16, 12 18, 12 22 C 12 18, 14 16, 18 14 C 14 12, 12 10, 12 6 C 12 10, 10 12, 6 14 Z"/></svg>
+      </span>
+      <span class="pl-hdr__brand-txt">
+        <b>{{ section.settings.brand_name }}</b>
+        <span>{{ section.settings.brand_tagline }}</span>
+      </span>
+    </a>
+
+    {%- assign menu = section.settings.menu -%}
+    {%- if linklists[menu].links.size > 0 -%}
+      <nav class="pl-hdr__nav" aria-label="Primary">
+        {%- for link in linklists[menu].links -%}
+          <a href="{{ link.url }}"{% if link.active %} class="is-active" aria-current="page"{% endif %}>{{ link.title }}</a>
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+
+    <div class="pl-hdr__tools">
+      {% if section.settings.show_search %}
+        <a class="pl-hdr__ico" href="{{ routes.search_url }}" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20 L16 16"/></svg>
+        </a>
+      {% endif %}
+      {% if section.settings.show_account %}
+        <a class="pl-hdr__ico" href="{{ routes.account_url }}" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21 C 6 15, 18 15, 20 21"/></svg>
+        </a>
+      {% endif %}
+      <a class="pl-hdr__ico" href="{{ routes.cart_url }}" aria-label="Cart, {{ cart.item_count }} items">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6 L7 6 L9 18 L20 18"/><path d="M9 12 L20 12 L21 6 L7 6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+        <span class="pl-hdr__cart-count">{{ cart.item_count }}</span>
+      </a>
+      <button class="pl-hdr__ico pl-hdr__burger" type="button" aria-label="Open menu" onclick="document.body.classList.toggle('pl-menu-open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7 L20 7 M4 12 L20 12 M4 17 L20 17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name":"Purelane — Header",
+  "tag":"section",
+  "class":"pl-section-wrap pl-header-wrap",
+  "settings":[
+    {"type":"text","id":"brand_name","label":"Brand name","default":"PURELANE"},
+    {"type":"text","id":"brand_tagline","label":"Tagline","default":"Clean, simply"},
+    {"type":"link_list","id":"menu","label":"Menu","default":"main-menu"},
+    {"type":"checkbox","id":"show_search","label":"Show search icon","default":true},
+    {"type":"checkbox","id":"show_account","label":"Show account icon","default":true}
+  ],
+  "presets":[{"name":"Purelane — Header"}]
+}
+{% endschema %}
