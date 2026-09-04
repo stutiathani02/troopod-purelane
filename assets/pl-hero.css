@@ -34,8 +34,11 @@
   position:relative; z-index:1;
   display:grid; grid-template-columns:1fr; gap:32px;
 }
-@media (min-width: 900px){
-  .pl-hero__grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:40px; align-items:center}
+@media (min-width: 720px){
+  .pl-hero__grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:32px; align-items:center}
+}
+@media (min-width: 1024px){
+  .pl-hero__grid{gap:40px}
 }
 .pl-hero__h1{
   font:800 clamp(52px, 12vw, 128px)/.92 var(--pl-font-display);

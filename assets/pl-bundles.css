@@ -5,8 +5,8 @@
 }
 .pl-bundles__intro .pl-lede{margin:0 auto}
 .pl-tiers{display:grid; gap:14px; grid-template-columns:1fr}
-@media (min-width: 640px){.pl-tiers{grid-template-columns:repeat(2,1fr)}}
-@media (min-width: 960px){.pl-tiers{grid-template-columns:repeat(3,1fr)}}
+@media (min-width: 560px){.pl-tiers{grid-template-columns:repeat(3,1fr); gap:10px}}
+@media (min-width: 900px){.pl-tiers{gap:14px}}
 
 .pl-tier{
   background:var(--pl-glass); border:1px solid var(--pl-line); border-radius:var(--pl-r);

@@ -1,11 +1,14 @@
 .pl-footer{background:linear-gradient(180deg, rgba(214,234,212,.6), rgba(202,224,197,.8)); border-top:1px solid rgba(75,58,143,.10)}
+/* Always 3 link columns in one row; brand sits above them, except at very wide desktop where it's beside */
 .pl-footer__grid{
-  display:grid; gap:32px; padding:44px 0 28px;
-  grid-template-columns:1.4fr repeat(3, 1fr);
+  display:grid; gap:24px; padding:40px 0 28px;
+  grid-template-columns:repeat(3, 1fr);
 }
-@media (max-width: 900px){
-  .pl-footer__grid{grid-template-columns:repeat(3, 1fr); gap:20px}
-  .pl-footer__brand{grid-column:1 / -1; margin-bottom:8px}
+.pl-footer__brand{grid-column:1 / -1; margin-bottom:4px}
+
+@media (min-width: 1024px){
+  .pl-footer__grid{grid-template-columns:1.4fr repeat(3, 1fr); gap:32px}
+  .pl-footer__brand{grid-column:auto; margin-bottom:0}
 }
 @media (max-width: 520px){
   .pl-footer__grid{gap:14px}
