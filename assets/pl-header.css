@@ -53,8 +53,17 @@ body.pl-scrolled .pl-hdr__pill{
   background:var(--pl-accent); color:#fff;
   font:800 10px/16px var(--pl-font-body); text-align:center; border-radius:999px;
 }
-.pl-hdr__burger{display:inline-grid}
+/* Burger visible only under 900px, sits at the left of the pill, replaces logo */
+.pl-hdr__burger{display:inline-grid; margin-right:2px}
 @media (min-width:900px){ .pl-hdr__burger{display:none} }
+@media (max-width:899px){
+  .pl-hdr__logo{display:none}
+  .pl-hdr__brand-txt b{font-size:14px}
+  .pl-hdr__brand-txt span{font-size:8.5px; letter-spacing:.2em}
+  .pl-hdr__pill{gap:6px; padding:8px 8px 8px 10px}
+  .pl-hdr__ico{width:34px; height:34px}
+  .pl-hdr__ico svg{width:16px; height:16px}
+}
 
 /* Hide Dawn's default header once Purelane header is on the page */
 body:has(.pl-hdr) .header-wrapper,

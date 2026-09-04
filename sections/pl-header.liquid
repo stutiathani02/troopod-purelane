@@ -3,6 +3,9 @@
 
 <header class="pl-hdr" role="banner">
   <div class="pl-hdr__pill">
+    <button class="pl-hdr__ico pl-hdr__burger" type="button" aria-label="Open menu" onclick="document.body.classList.toggle('pl-menu-open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7 L20 7 M4 12 L20 12 M4 17 L20 17"/></svg>
+    </button>
     <a class="pl-hdr__brand" href="{{ routes.root_url }}" aria-label="{{ section.settings.brand_name }} home">
       <span class="pl-hdr__logo" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 C 8 6, 8 12, 12 14 C 16 12, 16 6, 12 2 Z M 6 14 C 10 16, 12 18, 12 22 C 12 18, 14 16, 18 14 C 14 12, 12 10, 12 6 C 12 10, 10 12, 6 14 Z"/></svg>
@@ -37,9 +40,6 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6 L7 6 L9 18 L20 18"/><path d="M9 12 L20 12 L21 6 L7 6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
         <span class="pl-hdr__cart-count">{{ cart.item_count }}</span>
       </a>
-      <button class="pl-hdr__ico pl-hdr__burger" type="button" aria-label="Open menu" onclick="document.body.classList.toggle('pl-menu-open')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7 L20 7 M4 12 L20 12 M4 17 L20 17"/></svg>
-      </button>
     </div>
   </div>
 </header>

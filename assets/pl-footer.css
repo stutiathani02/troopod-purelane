@@ -3,8 +3,15 @@
   display:grid; gap:32px; padding:44px 0 28px;
   grid-template-columns:1.4fr repeat(3, 1fr);
 }
-@media (max-width: 900px){ .pl-footer__grid{grid-template-columns:1fr 1fr; gap:28px} }
-@media (max-width: 520px){ .pl-footer__grid{grid-template-columns:1fr} }
+@media (max-width: 900px){
+  .pl-footer__grid{grid-template-columns:repeat(3, 1fr); gap:20px}
+  .pl-footer__brand{grid-column:1 / -1; margin-bottom:8px}
+}
+@media (max-width: 520px){
+  .pl-footer__grid{gap:14px}
+  .pl-footer__col h4{font-size:10px; letter-spacing:.14em; margin-bottom:10px}
+  .pl-footer__col a, .pl-footer__col span{font-size:12.5px}
+}
 
 .pl-footer__brand{display:flex; flex-direction:column; gap:12px}
 .pl-footer__mark{display:flex; align-items:center; gap:10px}
