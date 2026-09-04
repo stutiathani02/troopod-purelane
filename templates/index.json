@@ -12,11 +12,23 @@
     "pl_hero_GD7yXT": {
       "type": "pl-hero",
       "blocks": {
+        "slide_xzDFeC": {
+          "type": "slide",
+          "settings": {
+            "product_1": "all-purpose-plant-based-floor-cleaner-with-lemongrass-neem-orange-peel-oils",
+            "product_2": "",
+            "product_3": "",
+            "tag_label": "Single bottle",
+            "tag_price": "₹200",
+            "tag_compare": "₹299",
+            "tag_save": "33% off"
+          }
+        },
         "slide_WETEk8": {
           "type": "slide",
           "settings": {
             "product_1": "dishwash-gel",
-            "product_2": "liquid-handwash",
+            "product_2": "",
             "product_3": "",
             "tag_label": "Single bottle",
             "tag_price": "₹200",
@@ -28,7 +40,7 @@
           "type": "slide",
           "settings": {
             "product_1": "copper-bronze-brass-cleaner",
-            "product_2": "toilet-cleaner",
+            "product_2": "",
             "product_3": "",
             "tag_label": "Single bottle",
             "tag_price": "₹200",
@@ -40,7 +52,7 @@
           "type": "slide",
           "settings": {
             "product_1": "tap-cleaner-limescale-remover",
-            "product_2": "all-purpose-plant-based-floor-cleaner-with-lemongrass-neem-orange-peel-oils",
+            "product_2": "",
             "product_3": "",
             "tag_label": "Single bottle",
             "tag_price": "₹200",
@@ -68,6 +80,7 @@
         }
       },
       "block_order": [
+        "slide_xzDFeC",
         "slide_WETEk8",
         "slide_NEKw3M",
         "slide_MrNkR8",
