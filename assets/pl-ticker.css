@@ -18,5 +18,6 @@
 .pl-ticker:hover .pl-ticker__track{animation-play-state:paused}
 @keyframes pl-ticker{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 @media (prefers-reduced-motion: reduce){
-  .pl-ticker__track{animation:none; width:auto; justify-content:center; flex-wrap:wrap; padding:8px 18px}
+  .pl-ticker__track{animation:none; width:auto; justify-content:center; flex-wrap:wrap; padding:8px 18px; gap:16px 32px}
+  .pl-ticker__item[aria-hidden="true"]{display:none}
 }
