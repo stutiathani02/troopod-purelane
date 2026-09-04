@@ -1,8 +1,12 @@
 /* Prevent horizontal overflow at mobile */
-html, body{overflow-x:hidden}
+html, body{overflow-x:hidden; max-width:100vw}
+*, *::before, *::after{box-sizing:border-box}
 @media (max-width:600px){
-  .pl-wrap{padding:0 22px !important}
-  .pl-shelf{gap:10px !important}
+  .pl-wrap{padding-left:24px !important; padding-right:24px !important}
+  .pl-shelf{gap:12px !important}
+  .pl-combo-rail{margin-left:-24px !important; margin-right:-24px !important; padding-left:24px !important; padding-right:24px !important}
+  .pl-tiers{gap:12px !important}
+  .pl-hero{padding-left:0 !important; padding-right:0 !important}
 }
 
 /* Page background — smooth lavender → mint down the page */
