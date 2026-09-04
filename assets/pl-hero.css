@@ -8,18 +8,19 @@
 }
 .pl-hero__bg:before,
 .pl-hero__bg:after{
-  content:''; position:absolute; left:-10%; right:-10%; height:280px;
-  background-repeat:repeat-x; background-size:1200px 280px;
-  pointer-events:none;
+  content:''; position:absolute; left:-10%; right:-10%;
+  background-repeat:repeat-x; pointer-events:none;
 }
 .pl-hero__bg:before{
-  bottom:12%; opacity:.55;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 280' preserveAspectRatio='none'><path d='M0 160 C 200 100, 400 220, 600 160 S 1000 100, 1200 160 L 1200 280 L 0 280 Z' fill='%237fb069'/></svg>");
+  bottom:14%; height:260px; opacity:.55;
+  background-image: var(--pl-wave-1);
+  background-size:1200px 260px;
   animation:pl-wave 22s linear infinite;
 }
 .pl-hero__bg:after{
-  bottom:0; opacity:.75;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 280' preserveAspectRatio='none'><path d='M0 190 C 250 140, 500 240, 750 180 S 1100 140, 1200 190 L 1200 280 L 0 280 Z' fill='%234f8f3e'/></svg>");
+  bottom:0; height:220px; opacity:.85;
+  background-image: var(--pl-wave-2);
+  background-size:1200px 220px;
   animation:pl-wave 30s linear infinite reverse;
 }
 @keyframes pl-wave{

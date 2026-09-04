@@ -1,6 +1,9 @@
 {{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
 {{ 'pl-hero.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'pl-hero-carousel.js' | asset_url }}" defer></script>
+<style>
+  .pl-hero{--pl-wave-1:url("{{ 'pl-wave-1.svg' | asset_url }}"); --pl-wave-2:url("{{ 'pl-wave-2.svg' | asset_url }}");}
+</style>
 
 {%- assign slide_blocks = section.blocks | where: 'type', 'slide' -%}
 {%- assign badge_blocks = section.blocks | where: 'type', 'badge' -%}
