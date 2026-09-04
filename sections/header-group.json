@@ -56,6 +56,7 @@
     },
     "header": {
       "type": "header",
+      "disabled": true,
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
@@ -71,10 +72,22 @@
         "padding_top": 16,
         "padding_bottom": 16
       }
+    },
+    "pl_header_UxnG9y": {
+      "type": "pl-header",
+      "name": "Purelane — Header",
+      "settings": {
+        "brand_name": "PURELANE",
+        "brand_tagline": "Clean, simply",
+        "menu": "main-menu",
+        "show_search": true,
+        "show_account": true
+      }
     }
   },
   "order": [
     "pl_ticker_iBgQ7K",
-    "header"
+    "header",
+    "pl_header_UxnG9y"
   ]
 }
