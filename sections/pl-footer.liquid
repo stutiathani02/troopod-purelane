@@ -1,0 +1,94 @@
+{{ 'purelane-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'pl-footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="pl-footer" role="contentinfo">
+  <div class="pl-wrap">
+    <div class="pl-footer__grid">
+      <div class="pl-footer__brand">
+        <div class="pl-footer__mark">
+          <span class="pl-footer__logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 C 8 6, 8 12, 12 14 C 16 12, 16 6, 12 2 Z M 6 14 C 10 16, 12 18, 12 22 C 12 18, 14 16, 18 14 C 14 12, 12 10, 12 6 C 12 10, 10 12, 6 14 Z"/></svg>
+          </span>
+          <span class="pl-footer__title">
+            <b>{{ section.settings.brand_name }}</b>
+            <span>{{ section.settings.brand_tagline }}</span>
+          </span>
+        </div>
+        {% if section.settings.about != blank %}
+          <p class="pl-footer__tag">{{ section.settings.about }}</p>
+        {% endif %}
+      </div>
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'column' -%}
+          <div class="pl-footer__col" {{ block.shopify_attributes }}>
+            {% if block.settings.heading != blank %}<h4>{{ block.settings.heading }}</h4>{% endif %}
+            <ul>
+              {%- assign lines = block.settings.items | newline_to_br | split: '<br />' -%}
+              {%- for line in lines -%}
+                {%- assign line = line | strip -%}
+                {%- if line != blank -%}
+                  {%- if line contains '|' -%}
+                    {%- assign parts = line | split: '|' -%}
+                    <li><a href="{{ parts[1] | strip }}">{{ parts[0] | strip }}</a></li>
+                  {%- else -%}
+                    <li><span>{{ line }}</span></li>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="pl-footer__base">
+      <span>{{ section.settings.copyright }}</span>
+      {% if section.settings.legal != blank %}
+        <div class="pl-footer__legal">
+          {%- assign legal = section.settings.legal | split: ',' -%}
+          {%- for item in legal -%}
+            {%- assign item = item | strip -%}
+            {%- if item contains '|' -%}
+              {%- assign parts = item | split: '|' -%}
+              <a href="{{ parts[1] | strip }}">{{ parts[0] | strip }}</a>
+            {%- else -%}
+              <a href="#">{{ item }}</a>
+            {%- endif -%}
+            {%- unless forloop.last -%}<span aria-hidden="true">·</span>{%- endunless -%}
+          {%- endfor -%}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name":"Purelane — Footer",
+  "tag":"section",
+  "class":"pl-section-wrap",
+  "settings":[
+    {"type":"text","id":"brand_name","label":"Brand name","default":"PURELANE"},
+    {"type":"text","id":"brand_tagline","label":"Brand tagline","default":"Clean, simply"},
+    {"type":"textarea","id":"about","label":"About text","default":"Effective cleaning, powered by nature. Made for Indian homes since day one."},
+    {"type":"text","id":"copyright","label":"Copyright line","default":"© 2026 Purelane Eco Products Private Limited"},
+    {"type":"text","id":"legal","label":"Legal links (comma-separated, use 'Label|/url')","default":"Privacy|/policies/privacy-policy, Terms|/policies/terms-of-service, Refunds|/policies/refund-policy, Contact|/pages/contact"}
+  ],
+  "blocks":[
+    {"type":"column","name":"Column","settings":[
+      {"type":"text","id":"heading","label":"Heading","default":"Shop"},
+      {"type":"textarea","id":"items","label":"Items (one per line; 'Label|/url' for links)","default":"Bestsellers|/collections/homepage-shop\nKitchen|/collections/homepage-shop\nLaundry|/collections/homepage-shop\nHome|/collections/homepage-shop\nSkin|/collections/homepage-shop\nStarter kits|/collections/homepage-shop"}
+    ]}
+  ],
+  "max_blocks":3,
+  "presets":[{
+    "name":"Purelane — Footer",
+    "blocks":[
+      {"type":"column","settings":{"heading":"Shop","items":"Bestsellers|/collections/homepage-shop\nKitchen|/collections/homepage-shop\nLaundry|/collections/homepage-shop\nHome|/collections/homepage-shop\nSkin|/collections/homepage-shop\nStarter kits|/collections/homepage-shop"}},
+      {"type":"column","settings":{"heading":"About","items":"How it works|#how\nSustainability|#\nFAQs|#\nReviews|#reviews"}},
+      {"type":"column","settings":{"heading":"Get in touch","items":"hello@purelane.com\n+91 9930 123 234"}}
+    ]
+  }]
+}
+{% endschema %}

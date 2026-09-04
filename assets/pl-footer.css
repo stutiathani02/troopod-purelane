@@ -1,0 +1,39 @@
+.pl-footer{background:linear-gradient(180deg, rgba(214,234,212,.6), rgba(202,224,197,.8)); border-top:1px solid rgba(75,58,143,.10)}
+.pl-footer__grid{
+  display:grid; gap:32px; padding:44px 0 28px;
+  grid-template-columns:1.4fr repeat(3, 1fr);
+}
+@media (max-width: 900px){ .pl-footer__grid{grid-template-columns:1fr 1fr; gap:28px} }
+@media (max-width: 520px){ .pl-footer__grid{grid-template-columns:1fr} }
+
+.pl-footer__brand{display:flex; flex-direction:column; gap:12px}
+.pl-footer__mark{display:flex; align-items:center; gap:10px}
+.pl-footer__logo{
+  width:44px; height:44px; border-radius:14px;
+  background:rgba(255,255,255,.7); border:1px solid var(--pl-line);
+  display:grid; place-items:center; color:var(--pl-accent); font:800 18px var(--pl-font-display);
+}
+.pl-footer__logo svg{width:22px; height:22px}
+.pl-footer__title{display:flex; flex-direction:column; line-height:1}
+.pl-footer__title b{font:800 16px var(--pl-font-display); color:var(--pl-ink-strong); letter-spacing:.08em}
+.pl-footer__title span{font:600 10px var(--pl-font-body); color:var(--pl-muted); letter-spacing:.24em; text-transform:uppercase; margin-top:4px}
+.pl-footer__tag{margin:6px 0 0; font-size:13.5px; color:var(--pl-ink); line-height:1.5; max-width:280px}
+
+.pl-footer__col h4{
+  margin:0 0 14px; font:800 11px var(--pl-font-body); letter-spacing:.18em;
+  text-transform:uppercase; color:var(--pl-lime);
+}
+.pl-footer__col ul{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+.pl-footer__col a, .pl-footer__col span{
+  color:var(--pl-ink); text-decoration:none; font-size:13.5px;
+}
+.pl-footer__col a:hover{color:var(--pl-brand)}
+
+.pl-footer__base{
+  display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+  padding:16px 0; border-top:1px solid rgba(75,58,143,.14);
+  font-size:12px; color:var(--pl-muted);
+}
+.pl-footer__legal{display:flex; gap:14px; flex-wrap:wrap}
+.pl-footer__legal a{color:var(--pl-muted); text-decoration:none}
+.pl-footer__legal a:hover{color:var(--pl-brand)}
