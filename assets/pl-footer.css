@@ -7,8 +7,9 @@
 .pl-footer__brand{grid-column:1 / -1; margin-bottom:4px}
 
 @media (min-width: 1024px){
-  .pl-footer__grid{grid-template-columns:1.4fr repeat(3, 1fr); gap:32px}
-  .pl-footer__brand{grid-column:auto; margin-bottom:0}
+  .pl-footer__grid{grid-template-columns:1fr 1fr 1fr 1fr; gap:44px; padding-left:16px; padding-right:16px; justify-items:start; max-width:1080px; margin:0 auto}
+  .pl-footer__brand{grid-column:auto; margin-bottom:0; padding-right:12px}
+  .pl-footer__col{padding-left:4px}
 }
 @media (max-width: 520px){
   .pl-footer__grid{gap:14px}
