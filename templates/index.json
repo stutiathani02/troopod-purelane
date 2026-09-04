@@ -105,6 +105,20 @@
         "tag_save": "33% off"
       }
     },
+    "pl_reviews_LwF3Qa": {
+      "type": "pl-reviews",
+      "name": "Purelane — Reviews rail",
+      "settings": {
+        "anchor": "reviews",
+        "metaobject_type": "review",
+        "kicker": "That's what they said",
+        "title": "Reviews",
+        "aggregate_rating": "4.8",
+        "aggregate_count": "12 lakh+",
+        "aggregate_label": "reviews across products",
+        "speed": 50
+      }
+    },
     "pl_shop_WGGDCh": {
       "type": "pl-shop",
       "name": "Purelane — Shop grid",
@@ -355,20 +369,6 @@
         "panel": false
       }
     },
-    "pl_reviews_LwF3Qa": {
-      "type": "pl-reviews",
-      "name": "Purelane — Reviews rail",
-      "settings": {
-        "anchor": "reviews",
-        "metaobject_type": "review",
-        "kicker": "That's what they said",
-        "title": "Reviews",
-        "aggregate_rating": "4.8",
-        "aggregate_count": "12 lakh+",
-        "aggregate_label": "reviews across products",
-        "speed": 50
-      }
-    },
     "pl_feature_grid_WzzBgF": {
       "type": "pl-feature-grid",
       "blocks": {
@@ -435,13 +435,13 @@
   },
   "order": [
     "pl_hero_GD7yXT",
-    "pl_shop_WGGDCh",
+    "pl_reviews_LwF3Qa",
+    "pl_feature_grid_dFAiEy",
+    "pl_feature_grid_WzzBgF",
     "pl_combos_pz4h9N",
     "pl_bundles_VPWcaE",
+    "pl_shop_WGGDCh",
     "pl_sticky_cta_7mta4j",
-    "pl_feature_grid_fcaezd",
-    "pl_feature_grid_dFAiEy",
-    "pl_reviews_LwF3Qa",
-    "pl_feature_grid_WzzBgF"
+    "pl_feature_grid_fcaezd"
   ]
 }
