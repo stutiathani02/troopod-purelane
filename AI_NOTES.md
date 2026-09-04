@@ -15,6 +15,10 @@
 - **`for p in p1,p2,p3` shorthand.** The agent tried a comma-separated iteration syntax that isn't valid Shopify Liquid; the section registered but shipped without previews. Replaced with `for i in (1..5) { key = 'product_' | append: i }`.
 - **`money` filter and currency units.** The agent mixed rupees (from metaobject Integer field) with paisa (from `product.price`), producing wrong totals. Fixed by converting rupees → paisa (`| times: 100`) so `| money` renders consistently.
 - **Schema validation strictness.** Every setting needs a `label`; every `range` default must land on a step multiple. The agent shipped `label`-less settings on the first Reviews section and Shopify rejected the file silently on sync — visible only in the git integration log.
+- **Section name length cap.** Shopify's section `name` field is capped at 25 chars — my first ticker name (`Purelane — Announcement ticker`, 30 chars) was silently rejected until I noticed in the log.
+- **`for` shorthand not in Shopify Liquid.** `{% for p in p1, p2, p3 %}` parses but does not iterate. Section registered but rendered without previews. Fixed with `for i in (1..n) { key = 'x_' | append: i; assign p = block.settings[key] }`.
+- **Inline SVG data URIs are fragile.** My hero-wave `background-image: url("data:image/svg+xml;utf8,<svg …>")` didn't render in the Shopify preview even though the same string worked in local devtools. Switched to real `.svg` files under `assets/` and injected the URL via `<style>` block in the section (`--pl-wave-1: url({{ 'pl-wave-1.svg' | asset_url }})`). Bulletproof.
+- **Preset changes don't back-fill existing section instances.** Updating a section's `presets` in schema only affects fresh adds. When I added slide blocks to Hero after user had already placed it, the existing instance still had zero slides and had to be deleted + re-added.
 
 ## What I'd systematise if I did twenty more of these
 

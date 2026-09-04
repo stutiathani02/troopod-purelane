@@ -4,11 +4,27 @@
 
 Five production sections, all merchant-editable from the theme editor, all reordering-safe:
 
-1. **Purelane — Hero** — 2-col grid; 3-line headline with accent word; two CTAs; up to 3 badge blocks; hero product with LCP-optimised responsive image; price tag panel.
-2. **Purelane — Shop grid** — collection-bound; renders `pl-product-card` snippet for each product; handles sold-out, no-image, long-title edge cases.
-3. **Purelane — Combos rail** — metaobject-driven (`combo` type); horizontal snap-scroller; sums product prices for MRP and computes savings against the stored combo price at render time.
-4. **Purelane — Bundles** — 3–4 tier blocks with per-tier product previews, qty, price, benefits list, and a "highlight" boolean that swaps the styling.
+1. **Purelane — Hero** — 2-col grid; 3-line headline with accent word; two CTAs; up to 3 badge blocks. **3-slide product carousel** (1 → 2 → 3 bottles) with per-slide price tag; auto-advance, hover-pause, dot navigation with keyboard arrows, IntersectionObserver pauses when off-screen, `prefers-reduced-motion` stays on slide 1. Animated wave layers at hero base (loaded as static SVG assets for browser reliability).
+2. **Purelane — Shop grid** — collection-bound; renders `pl-product-card` snippet for each product; two-pass render so badged products (Best seller / Top rated / New) show first; handles sold-out (disabled Add-to-cart, struck-through price), no-image (striped placeholder), long-title (2-line clamp with hover tooltip) edge cases; AJAX add-to-cart with per-button feedback state.
+3. **Purelane — Combos rail** — metaobject-driven (`combo` type); horizontal snap-scroller; sums product prices for MRP and computes savings against the stored combo price at render time. Highlight variant with amber outline.
+4. **Purelane — Bundles** — 3–4 tier blocks with per-tier product previews (up to 5), qty, price, benefits list, and a "highlight" boolean that swaps the styling.
 5. **Purelane — Reviews rail** — metaobject-driven (`review` type); infinite marquee; hover / focus / `prefers-reduced-motion` all pause or convert to a native scroller.
+
+## Bonus sections shipped
+
+- **Purelane — Header** — rounded glass pill nav with brand mark, tagline, `link_list`-picked menu, search / account / cart icons (with live cart badge). Sticky, slides in on load, condenses on scroll. Hides Dawn's default header via `body:has(.pl-hdr)` selector.
+- **Purelane — Ticker** — scrolling announcement marquee with block-based messages (highlight + text pairs), hover-pause, reduced-motion falls back to centred static line.
+- **Purelane — Footer** — 4-column (brand + 3 configurable link columns), textarea-based items with `Label|/url` syntax for links or plain text, copyright + comma-separated legal links.
+- **Purelane — Feature grid** — flexible N-block section covering three presets (Ingredients, Why bundles, Proof stats) with 2/3/4/5 column layouts, optional glass panel wrap, per-block accent-icon or stat-ring variant.
+- **Purelane — Sticky CTA** — fixed-bottom pill for the flat-price bundle offer with animated entrance.
+- **Global reveal-on-scroll** — sections fade + slide + unblur into view via `IntersectionObserver`; header gets `.pl-scrolled` class past 40px scroll; all short-circuited under `prefers-reduced-motion`.
+- **8 custom brand-consistent product mockups** — SVGs generated from a Python template (`product-mockups/_generate.py`); tall purple bottle silhouette + coloured label band + descriptor lines + volume + cap style varying per product (spray / trigger / pump / sachet / angled). Uploaded to Shopify as product media.
+
+## Palette + type system
+
+- Two-family type: Outfit (display, 700/800) + Inter (body, 400/600/700), loaded from Google Fonts.
+- Palette: lavender surfaces (`#f1ecfa`, `#e0d4f2`), mint accent bg (`#dff0dc`), aubergine ink (`#241a3d`, `#17102b`), lavender brand (`#6a52b3`, `#8a75c9`), amber accent (`#b8701c` — LASTS word, prices, ornament leaf, save chips), leaf green (`#4f8f3e` — check icons, badge pills), dark teal-green CTA (`#124f42`, `#1a6e5c` — primary buttons).
+- Body background: 5-stop lavender → mint gradient with fixed attachment so no visible bands as you scroll.
 
 ## Data model created
 
@@ -57,7 +73,7 @@ Five production sections, all merchant-editable from the theme editor, all reord
 
 ## Gaps / honesty
 
-- Currency displays as `Rs. 200.00` not `₹200`. Cosmetic; easy fix in store settings.
-- Hero is v1 (static). No carousel, no mouse parallax, no water animation. All flagged above as v2.
-- Combo prices assume all products are ₹200 each. If a merchant adds a product with a different price, the MRP sum stays correct but the "save" copy on the metaobject entry needs a manual update — or a Shopify Function to enforce it.
-- AJAX add-to-cart on Shop cards uses a lightweight `fetch('/cart/add.js')`. It fires the correct event but does not open Dawn's cart drawer — reviewers can verify the item is in cart at `/cart`.
+- AJAX add-to-cart on Shop cards uses a lightweight `fetch('/cart/add.js')`. It fires the correct event and updates the header cart badge on next reload, but does not open Dawn's cart drawer — reviewers can verify the item is in cart at `/cart`.
+- Combo "Save" copy is manually authored on each metaobject entry alongside the computed savings; a Shopify Function would enforce the discount at checkout.
+- No mouse-parallax on hero (a small nicety from the prototype). All other hero motion (carousel + waves + product float) is in.
+- Header's mobile menu (below 900px) currently toggles a class but doesn't render a drawer — the nav collapses, burger toggles `body.pl-menu-open` but no drawer template is included. Next iteration would ship a native `<dialog>` drawer.
