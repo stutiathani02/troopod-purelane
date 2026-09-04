@@ -12,6 +12,42 @@
     "pl_hero_GD7yXT": {
       "type": "pl-hero",
       "blocks": {
+        "slide_WETEk8": {
+          "type": "slide",
+          "settings": {
+            "product_1": "dishwash-gel",
+            "product_2": "liquid-handwash",
+            "product_3": "",
+            "tag_label": "Single bottle",
+            "tag_price": "₹200",
+            "tag_compare": "₹299",
+            "tag_save": "33% off"
+          }
+        },
+        "slide_NEKw3M": {
+          "type": "slide",
+          "settings": {
+            "product_1": "copper-bronze-brass-cleaner",
+            "product_2": "toilet-cleaner",
+            "product_3": "",
+            "tag_label": "Single bottle",
+            "tag_price": "₹200",
+            "tag_compare": "₹299",
+            "tag_save": "33% off"
+          }
+        },
+        "slide_MrNkR8": {
+          "type": "slide",
+          "settings": {
+            "product_1": "tap-cleaner-limescale-remover",
+            "product_2": "all-purpose-plant-based-floor-cleaner-with-lemongrass-neem-orange-peel-oils",
+            "product_3": "",
+            "tag_label": "Single bottle",
+            "tag_price": "₹200",
+            "tag_compare": "₹299",
+            "tag_save": "33% off"
+          }
+        },
         "badge_HJVV67": {
           "type": "badge",
           "settings": {
@@ -32,6 +68,9 @@
         }
       },
       "block_order": [
+        "slide_WETEk8",
+        "slide_NEKw3M",
+        "slide_MrNkR8",
         "badge_HJVV67",
         "badge_xn8tet",
         "badge_7RNRDW"
@@ -51,6 +90,49 @@
         "tag_price": "₹200",
         "tag_compare": "₹299",
         "tag_save": "33% off"
+      }
+    },
+    "pl_ticker_zHcWnf": {
+      "type": "pl-ticker",
+      "blocks": {
+        "item_66LcJE": {
+          "type": "item",
+          "settings": {
+            "strong": "Free shipping",
+            "text": "on every bundle across India"
+          }
+        },
+        "item_bzMYdV": {
+          "type": "item",
+          "settings": {
+            "strong": "100% plant-based",
+            "text": "and non-toxic"
+          }
+        },
+        "item_mFp4EG": {
+          "type": "item",
+          "settings": {
+            "strong": "Loved by",
+            "text": "30,000+ happy homes"
+          }
+        },
+        "item_kbGhtp": {
+          "type": "item",
+          "settings": {
+            "strong": "Buy 3",
+            "text": "at flat ₹499"
+          }
+        }
+      },
+      "block_order": [
+        "item_66LcJE",
+        "item_bzMYdV",
+        "item_mFp4EG",
+        "item_kbGhtp"
+      ],
+      "name": "Purelane — Ticker",
+      "settings": {
+        "speed": 32
       }
     },
     "pl_shop_WGGDCh": {
@@ -378,49 +460,6 @@
         "lede": "",
         "cols": "4",
         "panel": true
-      }
-    },
-    "pl_ticker_zHcWnf": {
-      "type": "pl-ticker",
-      "blocks": {
-        "item_66LcJE": {
-          "type": "item",
-          "settings": {
-            "strong": "Free shipping",
-            "text": "on every bundle across India"
-          }
-        },
-        "item_bzMYdV": {
-          "type": "item",
-          "settings": {
-            "strong": "100% plant-based",
-            "text": "and non-toxic"
-          }
-        },
-        "item_mFp4EG": {
-          "type": "item",
-          "settings": {
-            "strong": "Loved by",
-            "text": "30,000+ happy homes"
-          }
-        },
-        "item_kbGhtp": {
-          "type": "item",
-          "settings": {
-            "strong": "Buy 3",
-            "text": "at flat ₹499"
-          }
-        }
-      },
-      "block_order": [
-        "item_66LcJE",
-        "item_bzMYdV",
-        "item_mFp4EG",
-        "item_kbGhtp"
-      ],
-      "name": "Purelane — Ticker",
-      "settings": {
-        "speed": 32
       }
     }
   },
