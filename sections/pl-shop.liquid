@@ -16,9 +16,24 @@
     <div class="pl-shelf">
       {% assign col = section.settings.collection %}
       {% if col != blank and col.products.size > 0 %}
-        {% for product in col.products limit: section.settings.limit %}
-          {% render 'pl-product-card', product: product, style: 'grid' %}
-        {% endfor %}
+        {%- assign limit = section.settings.limit -%}
+        {%- assign printed = 0 -%}
+        {%- comment -%} First pass: products with a badge (bestseller, new, top-rated) {%- endcomment -%}
+        {%- for product in col.products -%}
+          {%- if printed >= limit -%}{%- break -%}{%- endif -%}
+          {%- if product.metafields.custom.badge != blank -%}
+            {% render 'pl-product-card', product: product, style: 'grid' %}
+            {%- assign printed = printed | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- comment -%} Second pass: everything else {%- endcomment -%}
+        {%- for product in col.products -%}
+          {%- if printed >= limit -%}{%- break -%}{%- endif -%}
+          {%- if product.metafields.custom.badge == blank -%}
+            {% render 'pl-product-card', product: product, style: 'grid' %}
+            {%- assign printed = printed | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
       {% else %}
         <p class="pl-empty">Pick a collection in the theme editor to populate the shop.</p>
       {% endif %}
