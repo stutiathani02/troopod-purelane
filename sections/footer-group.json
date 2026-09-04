@@ -1,11 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "pl_footer_VqPNYi": {
+      "type": "pl-footer",
+      "blocks": {
+        "column_wVfHPM": {
+          "type": "column",
+          "settings": {
+            "heading": "Shop",
+            "items": "Bestsellers|/collections/homepage-shop\nKitchen|/collections/homepage-shop\nLaundry|/collections/homepage-shop\nHome|/collections/homepage-shop\nSkin|/collections/homepage-shop\nStarter kits|/collections/homepage-shop"
+          }
+        },
+        "column_aKhRpt": {
+          "type": "column",
+          "settings": {
+            "heading": "About",
+            "items": "How it works|#how\nSustainability|#\nFAQs|#\nReviews|#reviews"
+          }
+        },
+        "column_jHaLVk": {
+          "type": "column",
+          "settings": {
+            "heading": "Get in touch",
+            "items": "hello@purelane.com\n+91 9930 123 234"
+          }
+        }
+      },
+      "block_order": [
+        "column_wVfHPM",
+        "column_aKhRpt",
+        "column_jHaLVk"
+      ],
+      "name": "Purelane — Footer",
+      "settings": {
+        "brand_name": "PURELANE",
+        "brand_tagline": "Clean, simply",
+        "about": "Effective cleaning, powered by nature. Made for Indian homes since day one.",
+        "copyright": "© 2026 Purelane Eco Products Private Limited",
+        "legal": "Privacy|/policies/privacy-policy, Terms|/policies/terms-of-service, Refunds|/policies/refund-policy, Contact|/pages/contact"
+      }
+    },
     "footer": {
       "type": "footer",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
@@ -23,6 +69,7 @@
     }
   },
   "order": [
+    "pl_footer_VqPNYi",
     "footer"
   ]
 }

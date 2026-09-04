@@ -317,49 +317,6 @@
         "speed": 50
       }
     },
-    "pl_ticker_Maqihm": {
-      "type": "pl-ticker",
-      "blocks": {
-        "item_NWGgDB": {
-          "type": "item",
-          "settings": {
-            "strong": "Free shipping",
-            "text": "on every bundle across India"
-          }
-        },
-        "item_FaXRbi": {
-          "type": "item",
-          "settings": {
-            "strong": "100% plant-based",
-            "text": "and non-toxic"
-          }
-        },
-        "item_cf67re": {
-          "type": "item",
-          "settings": {
-            "strong": "Loved by",
-            "text": "30,000+ happy homes"
-          }
-        },
-        "item_fE6YmQ": {
-          "type": "item",
-          "settings": {
-            "strong": "Buy 3",
-            "text": "at flat ₹499"
-          }
-        }
-      },
-      "block_order": [
-        "item_NWGgDB",
-        "item_FaXRbi",
-        "item_cf67re",
-        "item_fE6YmQ"
-      ],
-      "name": "Purelane — Ticker",
-      "settings": {
-        "speed": 36
-      }
-    },
     "pl_feature_grid_WzzBgF": {
       "type": "pl-feature-grid",
       "blocks": {
@@ -422,10 +379,54 @@
         "cols": "4",
         "panel": true
       }
+    },
+    "pl_ticker_zHcWnf": {
+      "type": "pl-ticker",
+      "blocks": {
+        "item_66LcJE": {
+          "type": "item",
+          "settings": {
+            "strong": "Free shipping",
+            "text": "on every bundle across India"
+          }
+        },
+        "item_bzMYdV": {
+          "type": "item",
+          "settings": {
+            "strong": "100% plant-based",
+            "text": "and non-toxic"
+          }
+        },
+        "item_mFp4EG": {
+          "type": "item",
+          "settings": {
+            "strong": "Loved by",
+            "text": "30,000+ happy homes"
+          }
+        },
+        "item_kbGhtp": {
+          "type": "item",
+          "settings": {
+            "strong": "Buy 3",
+            "text": "at flat ₹499"
+          }
+        }
+      },
+      "block_order": [
+        "item_66LcJE",
+        "item_bzMYdV",
+        "item_mFp4EG",
+        "item_kbGhtp"
+      ],
+      "name": "Purelane — Ticker",
+      "settings": {
+        "speed": 32
+      }
     }
   },
   "order": [
     "pl_hero_GD7yXT",
+    "pl_ticker_zHcWnf",
     "pl_shop_WGGDCh",
     "pl_combos_pz4h9N",
     "pl_bundles_VPWcaE",
@@ -433,7 +434,6 @@
     "pl_feature_grid_fcaezd",
     "pl_feature_grid_dFAiEy",
     "pl_reviews_LwF3Qa",
-    "pl_ticker_Maqihm",
     "pl_feature_grid_WzzBgF"
   ]
 }
