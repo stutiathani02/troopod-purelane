@@ -4,6 +4,7 @@
   scroll-snap-type:x mandatory;
   margin:20px -18px 0; padding:4px 18px 14px;
   scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  justify-content:safe center;
 }
 .pl-combo-rail::-webkit-scrollbar{display:none}
 .pl-combo-rail__cue{color:var(--pl-muted); font-size:12.5px; text-align:center; margin-top:10px}
